@@ -1,15 +1,17 @@
+/* Ajuste para que el navbar esté fijo en la parte superior */
 .PublicHeader {
   position: fixed;
   top: 0;
   width: 100%;
   height: 50px; /* Ajusta esta altura según tus necesidades */
-  background-color: #013953; /* Ajusta el color según tu diseño */
+  background-color: #e0e0e0; /* Plomo claro */
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem; /* Ajusta el padding horizontal */
   box-sizing: border-box;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Border inferior leve */
 }
 
 .hidden {
@@ -20,7 +22,7 @@
 .PublicHeader_logo {
   display: flex;
   align-items: center;
-  height: 100%; /* para alinear el logo verticalmente */
+  height: 100%; /* Para alinear el logo verticalmente */
 }
 
 .navBar {
@@ -41,7 +43,7 @@
 }
 
 .menuItems li a {
-  color: #fff;
+  color: #000; /* Letras negras */
   text-decoration: none;
   transition: color 0.2s;
   padding: 0.5rem 0; /* Reduce el padding vertical de los enlaces del menú */
@@ -78,7 +80,7 @@
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: #013953;
+    background-color: #e0e0e0; /* Plomo claro */
     position: fixed;
     top: 50px; /* Asegurar que el menú móvil aparezca justo debajo del navbar */
     left: 0;
