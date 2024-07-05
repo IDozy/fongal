@@ -1,0 +1,146 @@
+
+
+.hamburger,
+.toggle {
+  display: none;
+}
+
+.nav-bar ul {
+  display: flex;
+  list-style: none;
+}
+  
+  .nav-bar ul li a {
+      position: relative;
+      display: block;
+      color: #fff;
+      
+      border-radius: 50px;
+      transition: 0.2s;
+     
+      text-decoration: none;
+      text-align: start;
+  }
+
+.nav-bar ul li a::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50;
+  width: 0;
+  height: 2px;
+  background:var(--azul-memoryx);
+  transition: .3s;
+  -webkit-transition: .3s;
+  -moz-transition: .3s;
+  -ms-transition: .3s;
+  -o-transition: .3s;
+}
+
+.nav-bar ul li a:hover::before{
+width: 100%;
+}
+
+.nav-bar ul li a:active {
+  color: var(--azul-memoryx);
+}
+
+@media screen and (max-width: 992px) {
+  .header {
+    padding: 1.3rem 5%;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  .header{
+    padding: 15px 5% 5px  !important;
+  }
+  .hamburger,
+  .toggle {
+    display: block;
+    cursor: pointer;
+  }
+
+  .nav__container {
+    position: fixed;
+    width: 100%;
+    top: 0;
+  }
+
+  .nav-bar {
+    height: 0;
+    position: absolute;
+    top: 90px;
+    width: 80vw;
+    background: #013953;
+    transition: 0.5s;
+    overflow: hidden;
+    z-index: 2;
+  }
+  .nav-bar.active {
+    height: 20rem;
+  }
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+    padding: 0;
+  }
+
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+  .nav-bar ul li a {
+    margin-bottom: 12px;
+  }
+
+  .nav-bar ul li a {
+      position: relative;
+      display: block;
+      
+      font-size: 1.2rem;
+      border-radius: 50px;
+      transition: 0.2s;
+      margin: 0 1.5rem;
+      text-decoration: none;
+      text-align: start;
+      padding-bottom: 5px;
+  }
+
+  .toggle div:nth-child(1) {
+    transform: rotate(-45deg) translate(-8px, 5px);
+  }
+  .toggle div:nth-child(2) {
+    opacity: 0;
+  }
+  .toggle div:nth-child(3) {
+    transform: rotate(45deg) translate(-8px, -5px);
+  }
+  .logo img{
+    
+    height: 50px;
+    width: 50px !important;
+    margin: 0;
+    
+  }
+  .logo p {
+    display: none;
+  }
+}
+
+.hamburger div,
+.toggle div {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  margin: 6px 0;
+  transition: 0.4s;
+}
+
+
+.PublicHeader_publicHeader__iT2Uo{
+  justify-content: space-between;
+}
