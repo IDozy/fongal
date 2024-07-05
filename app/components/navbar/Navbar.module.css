@@ -1,134 +1,61 @@
-
-
-.hamburger,
-.toggle {
-  display: none;
+.PublicHeader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: 50px; /* Ajusta esta altura según tus necesidades */
+  background-color: #013953; /* Ajusta el color según tu diseño */
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem; /* Ajusta el padding horizontal */
+  box-sizing: border-box;
 }
 
-.nav-bar ul {
+.hidden {
+  top: -100px; /* Ajusta para ocultar el navbar al desplazarse hacia abajo */
+  transition: top 0.3s;
+}
+
+.PublicHeader_logo {
+  display: flex;
+  align-items: center;
+  height: 100%; /* para alinear el logo verticalmente */
+}
+
+.navBar {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.menuItems {
   display: flex;
   list-style: none;
-}
-  
-  .nav-bar ul li a {
-      position: relative;
-      display: block;
-      color: #fff;
-      
-      border-radius: 50px;
-      transition: 0.2s;
-     
-      text-decoration: none;
-      text-align: start;
-  }
-
-.nav-bar ul li a::before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 50;
-  width: 0;
-  height: 2px;
-  background:var(--azul-memoryx);
-  transition: .3s;
-  -webkit-transition: .3s;
-  -moz-transition: .3s;
-  -ms-transition: .3s;
-  -o-transition: .3s;
+  margin: 0; /* Eliminar márgenes para asegurar una altura mínima */
+  padding: 0; /* Eliminar padding para asegurar una altura mínima */
 }
 
-.nav-bar ul li a:hover::before{
-width: 100%;
+.menuItems li {
+  margin-right: 1rem; /* Reduce el margen entre los elementos del menú */
 }
 
-.nav-bar ul li a:active {
+.menuItems li a {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.2s;
+  padding: 0.5rem 0; /* Reduce el padding vertical de los enlaces del menú */
+  line-height: 1; /* Asegurar que no haya espacio extra por la altura de la línea */
+}
+
+.menuItems li a:hover {
   color: var(--azul-memoryx);
 }
 
-@media screen and (max-width: 992px) {
-  .header {
-    padding: 1.3rem 5%;
-  }
-}
-
-@media only screen and (max-width: 900px) {
-  .header{
-    padding: 15px 5% 5px  !important;
-  }
-  .hamburger,
-  .toggle {
-    display: block;
-    cursor: pointer;
-  }
-
-  .nav__container {
-    position: fixed;
-    width: 100%;
-    top: 0;
-  }
-
-  .nav-bar {
-    height: 0;
-    position: absolute;
-    top: 90px;
-    width: 80vw;
-    background: #013953;
-    transition: 0.5s;
-    overflow: hidden;
-    z-index: 2;
-  }
-  .nav-bar.active {
-    height: 20rem;
-  }
-  .nav-bar ul {
-    display: block;
-    width: fit-content;
-    margin: 80px auto 0 auto;
-    text-align: center;
-    transition: 0.5s;
-    opacity: 0;
-    padding: 0;
-  }
-
-  .nav-bar.active ul {
-    opacity: 1;
-  }
-  .nav-bar ul li a {
-    margin-bottom: 12px;
-  }
-
-  .nav-bar ul li a {
-      position: relative;
-      display: block;
-      
-      font-size: 1.2rem;
-      border-radius: 50px;
-      transition: 0.2s;
-      margin: 0 1.5rem;
-      text-decoration: none;
-      text-align: start;
-      padding-bottom: 5px;
-  }
-
-  .toggle div:nth-child(1) {
-    transform: rotate(-45deg) translate(-8px, 5px);
-  }
-  .toggle div:nth-child(2) {
-    opacity: 0;
-  }
-  .toggle div:nth-child(3) {
-    transform: rotate(45deg) translate(-8px, -5px);
-  }
-  .logo img{
-    
-    height: 50px;
-    width: 50px !important;
-    margin: 0;
-    
-  }
-  .logo p {
-    display: none;
-  }
+/* Estilos para el menú móvil */
+.hamburger,
+.toggle {
+  display: none;
 }
 
 .hamburger div,
@@ -140,7 +67,58 @@ width: 100%;
   transition: 0.4s;
 }
 
+@media (max-width: 900px) {
+  .hamburger,
+  .toggle {
+    display: block;
+    cursor: pointer;
+  }
 
-.PublicHeader_publicHeader__iT2Uo{
-  justify-content: space-between;
+  .navBar {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background-color: #013953;
+    position: fixed;
+    top: 50px; /* Asegurar que el menú móvil aparezca justo debajo del navbar */
+    left: 0;
+    z-index: 999;
+    transition: height 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  .navBar.active {
+    display: flex;
+    height: auto;
+  }
+
+  .menuItems {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+
+  .menuItems li {
+    margin: 1rem 0;
+  }
+
+  .hamburger.toggle .line1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger.toggle .line2 {
+    opacity: 0;
+  }
+
+  .hamburger.toggle .line3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+@media (min-width: 901px) {
+  .PublicHeader {
+    height: 50px; /* Ajusta esta altura según tus necesidades */
+    padding: 0 1rem; /* Ajusta el padding horizontal */
+  }
 }

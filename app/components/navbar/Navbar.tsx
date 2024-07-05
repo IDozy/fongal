@@ -30,43 +30,40 @@ const NavBar = () => {
   };
 
   return (
-    <div>
-      <div className={styles.PublicHeader}>
-        <figure className={styles.PublicHeader_logo}>
-          <svg fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* SVG content here */}
-          </svg>
-        </figure>
-        <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
-          <ul className={styles.menuItems}>
-            <li>
-              <Link href="/cursos" onClick={closeNav}>
-                Explorar
-              </Link>
-            </li>
-            <li>
-              <Link href="/nosotros" onClick={closeNav}>
-                Nosotros
-              </Link>
-            </li>
-            <li>
-              <Link href="/comunidad" onClick={closeNav}>
-                Comunidad
-              </Link>
-            </li>
-            <li>
-              <Link href="/informes" onClick={closeNav}>
-                Informes
-              </Link>
-            </li>
-          </ul>
-        </nav>
-
-        <div className={`${isNavActive ? styles.toggle : styles.hamburger}`} onClick={toggleNav}>
-          <div className={styles.line1}></div>
-          <div className={styles.line2}></div>
-          <div className={styles.line3}></div>
-        </div>
+    <div className={`${styles.PublicHeader} ${visible ? '' : styles.hidden}`}>
+      <figure className={styles.PublicHeader_logo}>
+        <svg fill="none" xmlns="http://www.w3.org/2000/svg">
+          {/* SVG content here */}
+        </svg>
+      </figure>
+      <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
+        <ul className={styles.menuItems}>
+          <li>
+            <Link href="/cursos" onClick={closeNav}>
+              Explorar
+            </Link>
+          </li>
+          <li>
+            <Link href="/nosotros" onClick={closeNav}>
+              Nosotros
+            </Link>
+          </li>
+          <li>
+            <Link href="/comunidad" onClick={closeNav}>
+              Comunidad
+            </Link>
+          </li>
+          <li>
+            <Link href="/informes" onClick={closeNav}>
+              Informes
+            </Link>
+          </li>
+        </ul>
+      </nav>
+      <div className={`${styles.hamburger} ${isNavActive ? styles.toggle : ''}`} onClick={toggleNav}>
+        <div className={styles.line1}></div>
+        <div className={styles.line2}></div>
+        <div className={styles.line3}></div>
       </div>
     </div>
   );
