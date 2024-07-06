@@ -9,6 +9,21 @@ generator client {
 }
 
 datasource db {
-  provider = "postgresql"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
+}
+
+model Ganado {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  name        String?
+  createdAt   DateTime @default(now())
+  Nacimiento  String?
+  DiasNacida  Int?
+  Categoria   String?
+  Establo     String?
+  Remate      Boolean?
+  Propietario String?
+  Descripcion String?
+  Raza        String?
+  Sexo        String?
 }
