@@ -1,327 +1,5 @@
 /*
 "use client";
-import { useEffect, useRef } from "react";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-
-export default function Home() {
-  const prevBtnRef = useRef<HTMLButtonElement>(null);
-  const nextBtnRef = useRef<HTMLButtonElement>(null);
-  const bookRef = useRef<HTMLDivElement>(null);
-  const paper1Ref = useRef<HTMLDivElement>(null);
-  const paper2Ref = useRef<HTMLDivElement>(null);
-  const paper3Ref = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-    const book = bookRef.current;
-    const paper1 = paper1Ref.current;
-    const paper2 = paper2Ref.current;
-    const paper3 = paper3Ref.current;
-
-    let currentLocation = 1;
-    const numOfPapers = 3;
-    const maxLocation = numOfPapers + 1;
-
-    const goNextPage = () => {
-      if (currentLocation < maxLocation) {
-        switch (currentLocation) {
-          case 1:
-            openBook();
-            if (paper1) {
-              paper1.classList.add("flipped");
-              paper1.style.zIndex = "1";
-            }
-            break;
-          case 2:
-            if (paper2) {
-              paper2.classList.add("flipped");
-              paper2.style.zIndex = "2";
-            }
-            break;
-          case 3:
-            if (paper3) {
-              paper3.classList.add("flipped");
-              paper3.style.zIndex = "3";
-              closeBook(false);
-            }
-            break;
-          default:
-            throw new Error("unknown state");
-        }
-        currentLocation++;
-      }
-    };
-
-    const goPrevPage = () => {
-      if (currentLocation > 1) {
-        switch (currentLocation) {
-          case 2:
-            closeBook(true);
-            if (paper1) {
-              paper1.classList.remove("flipped");
-              paper1.style.zIndex = "3";
-            }
-            break;
-          case 3:
-            if (paper2) {
-              paper2.classList.remove("flipped");
-              paper2.style.zIndex = "2";
-            }
-            break;
-          case 4:
-            openBook();
-            if (paper3) {
-              paper3.classList.remove("flipped");
-              paper3.style.zIndex = "1";
-            }
-            break;
-          default:
-            throw new Error("unknown state");
-        }
-        currentLocation--;
-      }
-    };
-
-    prevBtn?.addEventListener("click", goPrevPage);
-    nextBtn?.addEventListener("click", goNextPage);
-
-    return () => {
-      prevBtn?.removeEventListener("click", goPrevPage);
-      nextBtn?.removeEventListener("click", goNextPage);
-    };
-  }, []);
-
-  const openBook = () => {
-    const book = bookRef.current;
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-
-    if (book && prevBtn && nextBtn) {
-      book.style.transform = "translateX(50%)";
-      prevBtn.style.transform = "translateX(-230px)";
-      nextBtn.style.transform = "translateX(230px)";
-    }
-  };
-
-  const closeBook = (isAtBeginning?: boolean) => {
-    const book = bookRef.current;
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-
-    if (book && prevBtn && nextBtn) {
-      if (isAtBeginning) {
-        book.style.transform = "translateX(0%)";
-      } else {
-        book.style.transform = "translateX(100%)";
-      }
-      prevBtn.style.transform = "translateX(0px)";
-      nextBtn.style.transform = "translateX(0px)";
-    }
-  };
-
-  return (
-    <div className="box">
-      <div className="container">
-        <button ref={prevBtnRef} id="prev-btn">
-          <FaArrowCircleLeft size={28} fill="#636363" />
-        </button>
-        <div ref={bookRef} id="book" className="book">
-          <div ref={paper1Ref} id="p1" className="paper">
-            <div className="front">
-              <div className="front-content">
-                <h1>Front 1</h1>
-              </div>
-            </div>
-            <div className="back">
-              <div className="back-content">
-                <h1>Back 1</h1>
-              </div>
-            </div>
-          </div>
-
-          <div ref={paper2Ref} id="p2" className="paper">
-            <div className="front">
-              <div className="front-content">
-                <h1>Front 2</h1>
-              </div>
-            </div>
-            <div className="back">
-              <div className="back-content">
-                <h1>Back 2</h1>
-              </div>
-            </div>
-          </div>
-
-          <div ref={paper3Ref} id="p3" className="paper">
-            <div className="front">
-              <div className="front-content">
-                <h1>Front 3</h1>
-              </div>
-            </div>
-            <div className="back">
-              <div className="back-content">
-                <h1>Back 3</h1>
-              </div>
-            </div>
-          </div>
-        </div>
-        <button ref={nextBtnRef} id="next-btn">
-          <FaArrowCircleRight size={28} fill="#636363" />
-        </button>
-      </div>
-    </div>
-  );
-}*/
-/*
-"use client";
-import { useEffect, useRef, useState } from "react";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-
-interface Paper {
-  id: number;
-  front: string;
-  back: string;
-  element: HTMLDivElement | null;
-}
-
-export default function Home() {
-  const prevBtnRef = useRef<HTMLButtonElement>(null);
-  const nextBtnRef = useRef<HTMLButtonElement>(null);
-  const bookRef = useRef<HTMLDivElement>(null);
-  const [papers, setPapers] = useState<Paper[]>([
-    { id: 1, front: "Front 1", back: "Back 1", element: null },
-    { id: 2, front: "Front 2", back: "Back 2", element: null },
-    { id: 3, front: "Front 3", back: "Back 3", element: null },
-    { id: 4, front: "Front 4", back: "Back 4", element: null },
-    { id: 5, front: "Front 5", back: "Back 5", element: null },
-    { id: 6, front: "Front 6", back: "Back 6", element: null },
-    { id: 7, front: "Front 7", back: "Back 7", element: null },
-    // Add more papers here...
-  ]);
-
-  useEffect(() => {
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-    const book = bookRef.current;
-
-    let currentLocation = 1;
-    const maxLocation = papers.length + 1;
-
-    const goNextPage = () => {
-      console.log(currentLocation);
-      if (currentLocation < maxLocation) {
-        const paper = papers[currentLocation - 1];
-        if (paper.id === 1) {
-          openBook();
-        }
-        if (paper && paper.element) {
-          paper.element.classList.add("flipped");
-          paper.element.style.zIndex = `${paper.id}`;
-        }
-        if (paper.id === papers.length) {
-          closeBook(false);
-        }
-        currentLocation++;
-      }
-    };
-
-    const goPrevPage = () => {
-      if (currentLocation > 1) {
-        const paper = papers[currentLocation - 2];
-        if (paper.id === 1) {
-          closeBook(true);
-        }
-        if (paper && paper.element) {
-          paper.element.classList.remove("flipped");
-          paper.element.style.zIndex = `${papers.length - paper.id}`;
-        }
-        if (paper.id === papers.length) {
-          openBook();
-        }
-        currentLocation--;
-      }
-    };
-
-    prevBtn?.addEventListener("click", goPrevPage);
-    nextBtn?.addEventListener("click", goNextPage);
-
-    return () => {
-      prevBtn?.removeEventListener("click", goPrevPage);
-      nextBtn?.removeEventListener("click", goNextPage);
-    };
-  }, [papers]);
-
-  const openBook = () => {
-    const book = bookRef.current;
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-
-    if (book && prevBtn && nextBtn) {
-      book.style.transform = "translateX(50%)";
-      prevBtn.style.transform = "translateX(-230px)";
-      nextBtn.style.transform = "translateX(230px)";
-    }
-  };
-
-  const closeBook = (isAtBeginning?: boolean) => {
-    console.log("hola");
-    const book = bookRef.current;
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-
-    if (book && prevBtn && nextBtn) {
-      if (isAtBeginning) {
-        book.style.transform = "translateX(0%)";
-      } else {
-        book.style.transform = "translateX(100%)";
-      }
-      prevBtn.style.transform = "translateX(0px)";
-      nextBtn.style.transform = "translateX(0px)";
-    }
-  };
-
-  return (
-    <div className="box">
-      <div className="container">
-        <button ref={prevBtnRef} id="prev-btn">
-          <FaArrowCircleLeft size={28} fill="#636363" />
-        </button>
-        <div ref={bookRef} id="book" className="book">
-          {papers.map((paper, index) => (
-            <div
-              key={paper.id}
-              ref={(element) => {
-                if (element) {
-                  paper.element = element;
-                }
-              }}
-              id={`p${paper.id}`}
-              style={{ zIndex: `${papers.length - paper.id}` }}
-              className="paper"
-            >
-              <div className="front">
-                <div className="front-content">
-                  <h1>{paper.front}</h1>
-                </div>
-              </div>
-              <div className="back">
-                <div className="back-content">
-                  <h1>{paper.back}</h1>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <button ref={nextBtnRef} id="next-btn">
-          <FaArrowCircleRight size={28} fill="#636363" />
-        </button>
-      </div>
-    </div>
-  );
-}
-*/
-"use client";
 import { useEffect, useRef, useState } from "react";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
@@ -332,6 +10,8 @@ interface Paper {
 }
 
 export default function Home() {
+
+  
   const prevBtnRef = useRef<HTMLButtonElement>(null);
   const nextBtnRef = useRef<HTMLButtonElement>(null);
   const bookRef = useRef<HTMLDivElement>(null);
@@ -442,6 +122,745 @@ export default function Home() {
                 <div className="back-content">
                   <h1>{paper.back}</h1>
                 </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button ref={nextBtnRef} id="next-btn">
+          <FaArrowCircleRight size={28} fill="#636363" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+*/
+/*
+"use client";
+
+import React, { useEffect, useState } from "react";
+import getGanado from "./acctions/getGanado";
+
+export default function Home() {
+  const [vacas, setVacas] = useState<any[]>([]);
+  const [loading, setLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchGanado = async () => {
+      try {
+        const ganadoData = await getGanado();
+        setVacas(ganadoData);
+       
+      } catch (err: any) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGanado();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <div>
+      <h1>Lista de Ganado</h1>
+      {vacas.length > 0 ? (
+        <ul>
+          {vacas.map((vaca, index) => (
+            <li key={index}>
+              <p>Nombre: {vaca.name}</p>
+              <p>Nacimiento: {vaca.nacimiento}</p>
+              <p>Días Nacida: {vaca.días}</p>
+              <p>Categoría: {vaca.categoria}</p>
+              <p>Establo: {vaca.establo}</p>
+              <p>Remate: {vaca.remate ? "Sí" : "No"}</p>
+              <p>Propietario: {vaca.propietario}</p>
+              <p>Descripción: {vaca.descripcion}</p>
+              <p>Raza: {vaca.raza}</p>
+              <p>Sexo: {vaca.sexo}</p>
+           
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p>No hay datos de ganado disponibles.</p>
+      )}
+    </div>
+  );
+}
+*/ /*
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import Description from "./components/Description";
+
+interface Ganado {
+  id: string;
+  name: string;
+  nacimiento: string;
+  diasNacida: number;
+  categoria: string;
+  establo: string;
+  remate: boolean;
+  propietario: string;
+  descripcion: string;
+  raza: string;
+  sexo: string;
+}
+
+export default function Home() {
+  const [papers, setPapers] = useState<Ganado[]>([]);
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const bookRef = useRef<HTMLDivElement>(null);
+  const paperRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [currentLocation, setCurrentLocation] = useState(1);
+
+  useEffect(() => {
+    // Función para obtener los datos de la API
+    const fetchGanado = async () => {
+      try {
+        const response = await fetch('/api/ganado', {
+          method: 'GET',
+        });
+        if (!response.ok) {
+          throw new Error('Error fetching ganado');
+        }
+        const data: Ganado[] = await response.json();
+        setPapers(data);
+      } catch (error: any) {
+        console.error(error.message);
+      }
+    };
+
+    fetchGanado();
+  }, []);
+
+  useEffect(() => {
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+    const maxLocation = papers.length + 1;
+
+    const goNextPage = () => {
+      if (currentLocation < maxLocation) {
+        const paper = paperRefs.current[currentLocation - 1];
+        if (paper) {
+          if (currentLocation === 1) openBook();
+          paper.classList.add("flipped");
+          paper.style.zIndex = `${currentLocation}`;
+          if (currentLocation === papers.length) closeBook(false);
+          setCurrentLocation(currentLocation + 1);
+        }
+      }
+    };
+
+    const goPrevPage = () => {
+      if (currentLocation > 1) {
+        const paper = paperRefs.current[currentLocation - 2];
+        if (paper) {
+          if (currentLocation === 2) closeBook(true);
+          paper.classList.remove("flipped");
+          paper.style.zIndex = `${papers.length - (currentLocation - 1)}`;
+          if (currentLocation === papers.length + 1) openBook();
+          setCurrentLocation(currentLocation - 1);
+        }
+      }
+    };
+
+    prevBtn?.addEventListener("click", goPrevPage);
+    nextBtn?.addEventListener("click", goNextPage);
+
+    return () => {
+      prevBtn?.removeEventListener("click", goPrevPage);
+      nextBtn?.removeEventListener("click", goNextPage);
+    };
+  }, [currentLocation, papers]);
+
+  const openBook = () => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = "translateX(50%)";
+      prevBtn.style.transform = "translateX(-230px)";
+      nextBtn.style.transform = "translateX(230px)";
+    }
+  };
+
+  const closeBook = (isAtBeginning?: boolean) => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = isAtBeginning ? "translateX(0%)" : "translateX(100%)";
+      prevBtn.style.transform = "translateX(0px)";
+      nextBtn.style.transform = "translateX(0px)";
+    }
+  };
+
+  return (
+    <div className="box">
+      <div className="container">
+        <button ref={prevBtnRef} id="prev-btn">
+          <FaArrowCircleLeft size={28} fill="#636363" />
+        </button>
+        <div ref={bookRef} id="book" className="book">
+          {papers.map((paper, index) => (
+            <div
+              key={paper.id}
+              ref={(element) => {
+                paperRefs.current[index] = element;
+              }}
+              id={`p${index + 1}`}
+              style={{ zIndex: `${papers.length - index}` }}
+              className="paper"
+            >
+              <div className="front">
+                <div className="front-content">
+                  {index === 0 ? (
+                    <h1>Página de Inicio</h1>
+                  ) : (
+                    <h1>{paper.name}</h1>
+                  )}
+                </div>
+              </div>
+              <div className="back">
+                <div className="back-content">
+                  {index === papers.length -1 ? (
+                    <h1>Página de Fin</h1>
+                  ) : (
+                    <Description vaca={paper} />
+                  )}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button ref={nextBtnRef} id="next-btn">
+          <FaArrowCircleRight size={28} fill="#636363" />
+        </button>
+      </div>
+    </div>
+  );
+}
+*/ /*
+
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+import Description from "./components/Description";
+
+interface Ganado {
+  id: string;
+  name: string;
+  nacimiento: string;
+  diasNacida: number;
+  categoria: string;
+  establo: string;
+  remate: boolean;
+  propietario: string;
+  descripcion: string;
+  raza: string;
+  sexo: string;
+}
+
+type Paper = 
+  | { id: string; type: 'start' | 'end'; name: string }
+  | { id: string; type: 'name' | 'description'; ganado: Ganado };
+
+export default function Home() {
+  const [papers, setPapers] = useState<Paper[]>([]);
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const bookRef = useRef<HTMLDivElement>(null);
+  const paperRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const [currentLocation, setCurrentLocation] = useState(0);
+
+  useEffect(() => {
+    const fetchGanado = async () => {
+      try {
+        const response = await fetch('/api/ganado', {
+          method: 'GET',
+        });
+        if (!response.ok) {
+          throw new Error('Error fetching ganado');
+        }
+        const data: Ganado[] = await response.json();
+        const formattedData: Paper[] = [
+          { id: 'start', type: 'start', name: 'Página de Inicio' },
+          ...data.flatMap((g) => [
+            { id: `${g.id}-name`, type: 'name' as const, ganado: g },
+            { id: `${g.id}-description`, type: 'description' as const, ganado: g },
+          ]),
+          { id: 'end', type: 'end', name: 'Página de Fin' },
+        ];
+        setPapers(formattedData);
+      } catch (error: any) {
+        console.error(error.message);
+      }
+    };
+
+    fetchGanado();
+  }, []);
+
+  useEffect(() => {
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+    const maxLocation = papers.length; // Total de páginas
+
+    const goNextPage = () => {
+      if (currentLocation < maxLocation - 1) {
+        const paper = paperRefs.current[currentLocation];
+        if (paper) {
+          if (currentLocation === 0) openBook();
+          paper.classList.add("flipped");
+          paper.style.zIndex = `${currentLocation + 1}`;
+          if (currentLocation === maxLocation - 2) closeBook(false); // para fin
+          setCurrentLocation(currentLocation + 1);
+        }
+      }
+    };
+
+    const goPrevPage = () => {
+      if (currentLocation > 0) {
+        const paper = paperRefs.current[currentLocation - 1];
+        if (paper) {
+          if (currentLocation === 1) closeBook(true);
+          paper.classList.remove("flipped");
+          paper.style.zIndex = `${maxLocation - currentLocation}`;
+          if (currentLocation === maxLocation - 1) openBook(); // para inicio
+          setCurrentLocation(currentLocation - 1);
+        }
+      }
+    };
+
+    prevBtn?.addEventListener("click", goPrevPage);
+    nextBtn?.addEventListener("click", goNextPage);
+
+    return () => {
+      prevBtn?.removeEventListener("click", goPrevPage);
+      nextBtn?.removeEventListener("click", goNextPage);
+    };
+  }, [currentLocation, papers]);
+
+  const openBook = () => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = "translateX(50%)";
+      prevBtn.style.transform = "translateX(-230px)";
+      nextBtn.style.transform = "translateX(230px)";
+    }
+  };
+
+  const closeBook = (isAtBeginning?: boolean) => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = isAtBeginning ? "translateX(0%)" : "translateX(100%)";
+      prevBtn.style.transform = "translateX(0px)";
+      nextBtn.style.transform = "translateX(0px)";
+    }
+  };
+
+  return (
+    <div className="box">
+      <div className="container">
+        <button ref={prevBtnRef} id="prev-btn">
+          <FaArrowCircleLeft size={28} fill="#636363" />
+        </button>
+        <div ref={bookRef} id="book" className="book">
+          {papers.map((paper, index) => (
+            <div
+              key={paper.id}
+              ref={(element) => {
+                paperRefs.current[index] = element;
+              }}
+              id={`p${index + 1}`}
+              style={{ zIndex: `${papers.length - index}` }}
+              className="paper"
+            >
+              <div className="front">
+                <div className="front-content">
+                  {paper.type === 'start' ? (
+                    <h1>Página de Inicio</h1>
+                  ) : paper.type === 'description' ? (
+                    <Description vaca={paper.ganado} />
+                  ) : null}
+                </div>
+              </div>
+              <div className="back">
+                <div className="back-content">
+                  {paper.type === 'end' ? (
+                    <h1>Página de Fin</h1>
+                  ) : paper.type === 'name' ? (
+                    <h1>{paper.ganado.name}</h1>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button ref={nextBtnRef} id="next-btn">
+          <FaArrowCircleRight size={28} fill="#636363" />
+        </button>
+      </div>
+    </div>
+  );
+}
+*/
+
+/*
+
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+
+interface Paper {
+  id: number;
+  front: React.ReactNode;
+  back: React.ReactNode;
+}
+
+const DataComponent: React.FC<{ data: string }> = ({ data }) => (
+  <div>{data}</div>
+);
+
+export default function Home() {
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const bookRef = useRef<HTMLDivElement>(null);
+  const [currentLocation, setCurrentLocation] = useState(0);
+
+  const papers: Paper[] = [
+    { id: 1, front: "QR", back: <DataComponent data="datos nombre 1" /> },
+    { id: 2, front: <DataComponent data="datos informarcion 1" />, back: <DataComponent data="datos nombre 2" /> },
+    { id: 3, front: <DataComponent data="datos informarcion 2" />, back: <DataComponent data="datos nombre 3" /> },
+    { id: 4, front: <DataComponent data="datos informarcion 3" />, back: <DataComponent data="datos nombre 4" /> },
+    { id: 5, front: <DataComponent data="datos informarcion 4" />, back: <DataComponent data="datos nombre 5" /> },
+    { id: 6, front: <DataComponent data="datos informarcion 5" />, back: "Fin" }
+  ];
+
+  const paperRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+    const maxLocation = papers.length;
+
+    const goNextPage = () => {
+      if (currentLocation < maxLocation) {
+        const paper = paperRefs.current[currentLocation];
+        if (paper) {
+          if (currentLocation === 0) openBook();
+          paper.classList.add("flipped");
+          paper.style.zIndex = `${currentLocation}`;
+          if (currentLocation === papers.length - 1) closeBook(false);
+          setCurrentLocation(currentLocation + 1);
+        }
+      }
+    };
+
+    const goPrevPage = () => {
+      if (currentLocation > 0) {
+        const paper = paperRefs.current[currentLocation - 1];
+        if (paper) {
+          if (currentLocation === 1) closeBook(true);
+          paper.classList.remove("flipped");
+          paper.style.zIndex = `${papers.length - currentLocation}`;
+          if (currentLocation === papers.length) openBook();
+          setCurrentLocation(currentLocation - 1);
+        }
+      }
+    };
+
+    prevBtn?.addEventListener("click", goPrevPage);
+    nextBtn?.addEventListener("click", goNextPage);
+
+    return () => {
+      prevBtn?.removeEventListener("click", goPrevPage);
+      nextBtn?.removeEventListener("click", goNextPage);
+    };
+  }, [currentLocation, papers]);
+
+  const openBook = () => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = "translateX(50%)";
+      prevBtn.style.transform = "translateX(-230px)";
+      nextBtn.style.transform = "translateX(230px)";
+    }
+  };
+
+  const closeBook = (isAtBeginning?: boolean) => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = isAtBeginning ? "translateX(0%)" : "translateX(100%)";
+      prevBtn.style.transform = "translateX(0px)";
+      nextBtn.style.transform = "translateX(0px)";
+    }
+  };
+
+  return (
+    <div className="box">
+      <div className="container">
+        <button ref={prevBtnRef} id="prev-btn">
+          <FaArrowCircleLeft size={28} fill="#636363" />
+        </button>
+        <div ref={bookRef} id="book" className="book">
+          {papers.map((paper, index) => (
+            <div
+              key={paper.id}
+              ref={(element) => {
+                paperRefs.current[index] = element;
+              }}
+              id={`p${paper.id}`}
+              style={{ zIndex: `${papers.length - index}` }}
+              className="paper"
+            >
+              <div className="front">
+                <div className="front-content">
+                  {paper.front}
+                </div>
+              </div>
+              <div className="back">
+                <div className="back-content">
+                  {paper.back}
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button ref={nextBtnRef} id="next-btn">
+          <FaArrowCircleRight size={28} fill="#636363" />
+        </button>
+      </div>
+    </div>
+  );
+}
+*/
+
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+
+interface Ganado {
+  id: string;
+  name: string;
+  nacimiento: string;
+  diasNacida: number;
+  categoria: string;
+  establo: string;
+  remate: boolean;
+  propietario: string;
+  descripcion: string;
+  raza: string;
+  sexo: string;
+}
+
+interface Paper {
+  id: number;
+  front: React.ReactNode;
+  back: React.ReactNode;
+}
+
+const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
+  vaca,
+  type,
+}) => (
+  <div>
+    {type === "front" ? (
+     <>
+     <p>
+       <strong>Nacimiento:</strong> {vaca.nacimiento}
+     </p>
+     <p>
+       <strong>Días Nacida:</strong> {vaca.diasNacida}
+     </p>
+     <p>
+       <strong>Categoria:</strong> {vaca.categoria}
+     </p>
+     <p>
+       <strong>Establo:</strong> {vaca.establo}
+     </p>
+     <p>
+       <strong>Remate:</strong> {vaca.remate ? "Sí" : "No"}
+     </p>
+     <p>
+       <strong>Propietario:</strong> {vaca.propietario}
+     </p>
+     <p>
+       <strong>Descripción:</strong> {vaca.descripcion}
+     </p>
+     <p>
+       <strong>Raza:</strong> {vaca.raza}
+     </p>
+     <p>
+       <strong>Sexo:</strong> {vaca.sexo}
+     </p>
+   </>
+    ) : (
+      <h2>{vaca.name}</h2>
+      
+    )}
+  </div>
+);
+
+export default function Home() {
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const bookRef = useRef<HTMLDivElement>(null);
+  const [currentLocation, setCurrentLocation] = useState(0);
+  const [ganadoData, setGanadoData] = useState<Ganado[]>([]);
+
+  useEffect(() => {
+    const fetchGanado = async () => {
+      try {
+        const response = await fetch("/api/ganado", {
+          method: "GET",
+        });
+        if (!response.ok) {
+          throw new Error("Error fetching ganado");
+        }
+        const data = await response.json();
+        setGanadoData(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchGanado();
+  }, []);
+
+  const papers: Paper[] =
+    ganadoData.length > 0
+      ? [
+          { id: 1, front: "QR", back: <Description vaca={ganadoData[0]} /> },
+          ...ganadoData
+            .slice(0, ganadoData.length - 1)
+            .map((ganado, index) => ({
+              id: index + 2,
+              front: <Description vaca={ganado} type="front" />,
+              back: <Description vaca={ganadoData[index + 1]} />,
+            })),
+          {
+            id: ganadoData.length + 1,
+            front: <Description vaca={ganadoData[ganadoData.length - 1]} type="front" />,
+            back: "Fin",
+          },
+        ]
+      : [];
+
+  const paperRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+    const maxLocation = papers.length;
+
+    const goNextPage = () => {
+      if (currentLocation < maxLocation) {
+        const paper = paperRefs.current[currentLocation];
+        if (paper) {
+          if (currentLocation === 0) openBook();
+          paper.classList.add("flipped");
+          paper.style.zIndex = `${currentLocation}`;
+          if (currentLocation === papers.length - 1) closeBook(false);
+          setCurrentLocation(currentLocation + 1);
+        }
+      }
+    };
+
+    const goPrevPage = () => {
+      if (currentLocation > 0) {
+        const paper = paperRefs.current[currentLocation - 1];
+        if (paper) {
+          if (currentLocation === 1) closeBook(true);
+          paper.classList.remove("flipped");
+          paper.style.zIndex = `${papers.length - currentLocation}`;
+          if (currentLocation === papers.length) openBook();
+          setCurrentLocation(currentLocation - 1);
+        }
+      }
+    };
+
+    prevBtn?.addEventListener("click", goPrevPage);
+    nextBtn?.addEventListener("click", goNextPage);
+
+    return () => {
+      prevBtn?.removeEventListener("click", goPrevPage);
+      nextBtn?.removeEventListener("click", goNextPage);
+    };
+  }, [currentLocation, papers]);
+
+  const openBook = () => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = "translateX(50%)";
+      prevBtn.style.transform = "translateX(-230px)";
+      nextBtn.style.transform = "translateX(230px)";
+    }
+  };
+
+  const closeBook = (isAtBeginning?: boolean) => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = isAtBeginning
+        ? "translateX(0%)"
+        : "translateX(100%)";
+      prevBtn.style.transform = "translateX(0px)";
+      nextBtn.style.transform = "translateX(0px)";
+    }
+  };
+
+  return (
+    <div className="box">
+      <div className="container">
+        <button ref={prevBtnRef} id="prev-btn">
+          <FaArrowCircleLeft size={28} fill="#636363" />
+        </button>
+        <div ref={bookRef} id="book" className="book">
+          {papers.map((paper, index) => (
+            <div
+              key={paper.id}
+              ref={(element) => {
+                paperRefs.current[index] = element;
+              }}
+              id={`p${paper.id}`}
+              style={{ zIndex: `${papers.length - index}` }}
+              className="paper"
+            >
+              <div className="front">
+                <div className="front-content">{paper.front}</div>
+              </div>
+              <div className="back">
+                <div className="back-content">{paper.back}</div>
               </div>
             </div>
           ))}
