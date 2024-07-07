@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link"; // Importa Link de next/link
 import styles from '../Navbar/Navbar.module.css'; // Ajusta la ruta según tu estructura de archivos
+import UserMenu from "../footer/UserMenu";
 
 const NavBar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
@@ -58,6 +59,7 @@ const NavBar = () => {
               Informes
             </Link>
           </li>
+        
         </ul>
       </nav>
       <div className={`${styles.hamburger} ${isNavActive ? styles.toggle : ''}`} onClick={toggleNav}>

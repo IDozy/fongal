@@ -13,6 +13,45 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+enum Role {
+  USER
+  ADMIN
+}
+
+model User {
+  id             String    @id @default(auto()) @map("_id") @db.ObjectId
+  name           String?
+  email          String?   @unique
+  emailVerified  DateTime?
+  image          String?
+  hashedPassword String?
+  createdAt      DateTime  @default(now())
+  updateAt       DateTime  @updatedAt
+  favoritesIds   String[]  @db.ObjectId
+  role           Role      @default(USER)
+
+  accounts Account[]
+}
+
+model Account {
+  id                String  @id @default(auto()) @map("_id") @db.ObjectId
+  userId            String  @db.ObjectId
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String? @db.String
+  access_token      String? @db.String
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String? @db.String
+  session_state     String?
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+}
+
 model Ganado {
   id          String   @id @default(auto()) @map("_id") @db.ObjectId
   name        String?
@@ -26,4 +65,5 @@ model Ganado {
   descripcion String?
   raza        String?
   sexo        String?
+  imageSrc    String
 }
