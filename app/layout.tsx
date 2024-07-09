@@ -8,6 +8,7 @@ import ClientOnly from "./components/ClientOnly";
 import Modal from "./components/modals/Modal";
 import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
+import GanadoModal from "./components/modals/GanadoModal";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,6 +30,7 @@ export default async function RootLayout({
           <NavBar />
           <LoginModal />
           <RegisterModal />
+          <GanadoModal />
           <main className="site-content">{children}</main>
           <Footer currentUser={currentUser} />
         </ClientOnly>

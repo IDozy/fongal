@@ -5,7 +5,7 @@ import Avatar from "./Avatar";
 import MenuItem from "./MenuItem";
 import useRegisterModal from "../../hooks/useRegisterModal";
 import useLoginModal from "../../hooks/useLoginModal";
-import useRentModal from "../../hooks/useRentModal";
+import useGanadoModal from "../../hooks/useGanadoModal";
 
 import { signOut } from "next-auth/react";
 import { SafeUser } from "../../types";
@@ -27,43 +27,28 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
   const router = useRouter();
   const registerModal = useRegisterModal();
   const loginModal = useLoginModal();
-  const rentModal = useRentModal();
+  const ganadoModal = useGanadoModal();
 
   const [isOpen, setIsOpen] = useState(false);
   const toggleOpen = useCallback(() => {
     setIsOpen((value) => !value);
   }, []);
 
-  const onRent = useCallback(() => {
+  const onGanado = useCallback(() => {
     if (!currentUser) {
       return loginModal.onOpen();
     }
 
-    rentModal.onOpen();
-  }, [currentUser, loginModal, rentModal]);
+    ganadoModal.onOpen();
+  }, [currentUser, loginModal, ganadoModal]);
 
   return (
     <div className="relative">
       <div
-        className="
-      flex
-      flex-row 
-      items-center
-      gap-3"
-      >
+        className="flex flex-row items-center gap-3">
         <div
-          onClick={onRent}
-          className=" hidden
-        md:block
-        text-sm
-        font-semibold
-       
-        
-       
-        transition
-        
-        "
-        >
+          onClick={onGanado}
+          className=" hidden md:block text-sm font-semibold transition">
           Crear
         </div>
         <div

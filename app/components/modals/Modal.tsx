@@ -120,7 +120,7 @@ const Modal: React.FC<ModalProps> = ({
                 className="
               flex
               items-center
-              p-6
+              p-4
               rounded-t
               justify-center
               relative

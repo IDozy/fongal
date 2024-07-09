@@ -1,15 +1,15 @@
 import { create } from "zustand";
 
-interface RentModalStore {
+interface GanadoModalStore {
   isOpen: boolean;
   onOpen: () => void;
   onClose: () => void;
 }
 
-const useRentModal = create<RentModalStore>((set) => ({
+const useGanadoModal = create<GanadoModalStore>((set) => ({
   isOpen: false,
   onOpen: () => set({ isOpen: true }),
   onClose: () => set({ isOpen: false }),
 }));
 
-export default useRentModal;
+export default useGanadoModal;

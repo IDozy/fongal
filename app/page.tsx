@@ -677,6 +677,7 @@ interface Ganado {
   descripcion: string;
   raza: string;
   sexo: string;
+  imageSrc: string;
 }
 
 interface Paper {
@@ -691,38 +692,41 @@ const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
 }) => (
   <div>
     {type === "front" ? (
-     <>
-     <p>
-       <strong>Nacimiento:</strong> {vaca.nacimiento}
-     </p>
-     <p>
-       <strong>Días Nacida:</strong> {vaca.diasNacida}
-     </p>
-     <p>
-       <strong>Categoria:</strong> {vaca.categoria}
-     </p>
-     <p>
-       <strong>Establo:</strong> {vaca.establo}
-     </p>
-     <p>
-       <strong>Remate:</strong> {vaca.remate ? "Sí" : "No"}
-     </p>
-     <p>
-       <strong>Propietario:</strong> {vaca.propietario}
-     </p>
-     <p>
-       <strong>Descripción:</strong> {vaca.descripcion}
-     </p>
-     <p>
-       <strong>Raza:</strong> {vaca.raza}
-     </p>
-     <p>
-       <strong>Sexo:</strong> {vaca.sexo}
-     </p>
-   </>
+      <>
+        <p>
+          <strong>Nombre:</strong> {vaca.name}
+        </p>
+
+        <p>
+          <strong>Nacimiento:</strong> {vaca.nacimiento}
+        </p>
+        <p>
+          <strong>Días Nacida:</strong> {vaca.diasNacida}
+        </p>
+        <p>
+          <strong>Categoria:</strong> {vaca.categoria}
+        </p>
+        <p>
+          <strong>Establo:</strong> {vaca.establo}
+        </p>
+        <p>
+          <strong>Remate:</strong> {vaca.remate ? "Sí" : "No"}
+        </p>
+        <p>
+          <strong>Propietario:</strong> {vaca.propietario}
+        </p>
+        <p>
+          <strong>Descripción:</strong> {vaca.descripcion}
+        </p>
+        <p>
+          <strong>Raza:</strong> {vaca.raza}
+        </p>
+        <p>
+          <strong>Sexo:</strong> {vaca.sexo}
+        </p>
+      </>
     ) : (
-      <h2>{vaca.name}</h2>
-      
+      <img width={"350px"} src={vaca.imageSrc} alt={vaca.name} />
     )}
   </div>
 );
@@ -751,7 +755,7 @@ export default function Home() {
     };
     fetchGanado();
   }, []);
-
+  console.log(ganadoData);
   const papers: Paper[] =
     ganadoData.length > 0
       ? [
@@ -765,7 +769,12 @@ export default function Home() {
             })),
           {
             id: ganadoData.length + 1,
-            front: <Description vaca={ganadoData[ganadoData.length - 1]} type="front" />,
+            front: (
+              <Description
+                vaca={ganadoData[ganadoData.length - 1]}
+                type="front"
+              />
+            ),
             back: "Fin",
           },
         ]
