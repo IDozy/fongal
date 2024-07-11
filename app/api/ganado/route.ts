@@ -33,7 +33,7 @@ export async function POST(request: Request) {
     categoria,
     nacimiento,
     establo,
-    remate, // Este campo lo transformaremos a booleano
+    remate,
     descripcion,
     raza,
     sexo,
@@ -47,7 +47,7 @@ export async function POST(request: Request) {
   const diferenciaEnMilisegundos = hoy.getTime() - nacimientoDate.getTime();
   const diasNacida = Math.floor(diferenciaEnMilisegundos / (1000 * 60 * 60 * 24));
 
-  // Validar campos requeridos
+
   const requiredFields = [
     "name",
     "propietario",
