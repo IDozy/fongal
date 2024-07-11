@@ -9,6 +9,7 @@ import Modal from "./components/modals/Modal";
 import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
 import GanadoModal from "./components/modals/GanadoModal";
+import { Sponsors } from "./components/sponsors/Sponsors";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -32,6 +33,7 @@ export default async function RootLayout({
           <RegisterModal />
           <GanadoModal />
           <main className="site-content">{children}</main>
+          <Sponsors/>
           <Footer currentUser={currentUser} />
         </ClientOnly>
       </body>
