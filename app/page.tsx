@@ -726,9 +726,15 @@ const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
         </p>
       </>
     ) : (
-      <img width={"350px"} src={vaca.imageSrc} alt={vaca.name} />
+      <>
+        <img className="fotovaca" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ position: 'relative', zIndex: 2 }} />
+        
+        <div className="vacanombre" style={{ position: 'relative', zIndex: 2 }}>
+          <strong></strong> {vaca.name}
+        </div>
+      </>
     )}
-  </div>                                                                                                 
+  </div>
 );
 
 export default function Home() {
@@ -765,6 +771,7 @@ export default function Home() {
             .map((ganado, index) => ({
               id: index + 2,
               front: <Description vaca={ganado} type="front" />,
+              
               back: <Description vaca={ganadoData[index + 1]} />,
             })),
           {
@@ -866,10 +873,23 @@ export default function Home() {
               className="paper"
             >
               <div className="front">
-                <div className="front-content">{paper.front}</div>
+                <div className="front-content">{paper.front}
+
+                </div>
               </div>
               <div className="back">
-                <div className="back-content">{paper.back}</div>
+                <div className="back-content">{paper.back}
+
+
+{/* Rectángulos alineados */}
+<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: '#5C3C35', zIndex: 1 }}></div>
+<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '60%', transform: 'translate(-50%, -50%)', background: '#5C3C35', zIndex: 1 }}></div>
+<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '70%', transform: 'translate(-50%, -50%)', background: '#5C3C35', zIndex: 1 }}></div>
+         
+
+
+
+                </div>
               </div>
             </div>
           ))}

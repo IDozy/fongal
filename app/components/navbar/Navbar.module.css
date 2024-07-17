@@ -124,3 +124,9 @@
     padding: 0 1rem; /* Ajusta el padding horizontal */
   }
 }
+.logoImage{
+  height: 50px; /* Ajusta la altura del logo */
+  width: auto; /* Mantiene la proporción */
+  display: block; /* Para que se comporte como un bloque */
+  margin-right: 20px; /* Espacio a la derecha del logo */
+}

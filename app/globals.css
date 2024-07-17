@@ -14,7 +14,8 @@
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
-  background-color: powderblue;
+  background-color: #355C41;
+  
 }
 
 .container {
@@ -24,6 +25,8 @@
   align-items: center;
 
   
+
+  
 }
 
 .book {
@@ -31,6 +34,7 @@
   width: 450px;
   height: 600px;
   transition: transform 0.5s;
+  
 }
 
 .paper {
@@ -40,6 +44,7 @@
   top: 0;
   left: 0;
   perspective: 1500px;
+  
 }
 
 .front,
@@ -52,12 +57,19 @@
   left: 0;
   transform-origin: left;
   transition: transform 0.5s;
+  box-sizing: border-box;
+  border-radius: 48px;
+  -webkit-border-radius: 48px;
+  -moz-border-radius: 48px;
+  -ms-border-radius: 48px;
+  -o-border-radius: 48px;
 }
 
 .front {
   z-index: 1;
   backface-visibility: hidden;
-  border-left: 3px solid powderblue;
+  border-left: 3px solid #DBBF9E;
+
 }
 
 .back {
@@ -71,6 +83,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
+ 
+  box-sizing: border-box;
+  border: 2px solid #5C3C35;
+  border-radius: 50px;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
 }
 
 .back-content {
@@ -104,3 +124,37 @@ i {
   font-size: 50px;
   color: gray;
 }
+
+.vacanombre{
+
+position: fixed;
+width: 329px;
+height: 101px;
+text-align: center;
+
+font-family: 'Segoe Print';
+font-style: normal;
+font-weight: 400;
+font-size: 48px;
+line-height: 85px;
+
+color: #0f0e0e;
+
+
+
+
+}
+
+.fotovaca{
+
+box-sizing: border-box;
+border: 2px solid #5C3C35;
+border-radius: 50px;
+-webkit-border-radius: 50px;
+-moz-border-radius: 50px;
+-ms-border-radius: 50px;
+-o-border-radius: 50px;
+  }
+
+
+
