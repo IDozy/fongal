@@ -859,7 +859,7 @@ export default function Home() {
     <div className="box">
       <div className="container">
         <button ref={prevBtnRef} id="prev-btn">
-          <FaArrowCircleLeft size={28} fill="#636363" />
+          <FaArrowCircleLeft size={28} fill="#5C3C35" />
         </button>
         <div ref={bookRef} id="book" className="book">
           {papers.map((paper, index) => (

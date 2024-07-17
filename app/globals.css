@@ -6,6 +6,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
+  
 }
 
 .box {
@@ -20,7 +22,11 @@
 
 .container {
   height: 100vh;
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(
+    auto-fit, minmax(150px,1fr)
+  );
+  
   justify-content: center;
   align-items: center;
 
@@ -35,6 +41,7 @@
   height: 600px;
   transition: transform 0.5s;
   
+  
 }
 
 .paper {
@@ -43,7 +50,7 @@
   height: 100%;
   top: 0;
   left: 0;
-  perspective: 1500px;
+  perspective: 1500px;  
   
 }
 
@@ -63,17 +70,19 @@
   -moz-border-radius: 48px;
   -ms-border-radius: 48px;
   -o-border-radius: 48px;
+  
 }
 
 .front {
   z-index: 1;
   backface-visibility: hidden;
   border-left: 3px solid #DBBF9E;
-
+  box-shadow: 20px 10px 20px #00000011;
 }
 
 .back {
   z-index: 0;
+  
 }
 
 .front-content,
@@ -129,6 +138,7 @@ button {
   cursor: pointer;
   margin: 10px;
   transition: transform 0.5s;
+  
 }
 
 button:focus {
@@ -142,6 +152,7 @@ button:hover i {
 i {
   font-size: 50px;
   color: gray;
+  
 }
 
 .vacanombre{
@@ -174,6 +185,4 @@ border-radius: 50px;
 -ms-border-radius: 50px;
 -o-border-radius: 50px;
   }
-
-
 
