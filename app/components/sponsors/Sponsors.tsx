@@ -1,25 +1,47 @@
 import React from "react";
 import styles from "./Sponsors.module.css";
-import img1 from "../../../public/images/gore.png";
-import img2 from "../../../public/images/mevelin.png";
-import img3 from "../../../public/images/Newmont.png";
-import img4 from "../../../public/images/newalac.jpg";
-import img5 from "../../../public/images/gore.png";
-import img6 from "../../../public/images/mevelin.png";
-import img7 from "../../../public/images/Newmont.png";
-import img8 from "../../../public/images/newalac.jpg";
-import img9 from "../../../public/images/gore.png";
-import img10 from "../../../public/images/mevelin.png";
-import img11 from "../../../public/images/Newmont.png";
-import img12 from "../../../public/images/newalac.jpg";
+import img1 from "../../../public/images/AGP SEMILLAS.png";
+import img2 from "../../../public/images/AGRORURAL.png";
+import img3 from "../../../public/images/AGROVET.png";
+import img4 from "../../../public/images/CUSQUEÑA LOGO.png";
+import img5 from "../../../public/images/DIRCETUR .png";
+import img6 from "../../../public/images/DRAC.png";
+import img7 from "../../../public/images/FERREYROS.png";
+import img8 from "../../../public/images/Foncreagro.png";
+import img9 from "../../../public/images/FONGAL.png";
+import img10 from "../../../public/images/FONGALWP.jpeg";
+import img11 from "../../../public/images/GLORIA.png";
+import img12 from "../../../public/images/gold-fields-logo.png";
+import img13 from "../../../public/images/gore.png";
+import img14 from "../../../public/images/GRANJAPORCON.png";
+import img15 from "../../../public/images/GRUPOLURDIS.png";
+import img16 from "../../../public/images/HOTELPEROLITOS.png";
+import img17 from "../../../public/images/INIA.png";
+import img18 from "../../../public/images/LOGO CLNICA LIMATAMBO.png";
+import img19 from "../../../public/images/LOGO FONGAL.png";
+import img20 from "../../../public/images/LOGO_HOTEL RUIZ.png";
+import img21 from "../../../public/images/LOGO_INMOBILIARIA RUIZ.png";
+import img22 from "../../../public/images/LOGO-NUEVO OF2.png";
+import img23 from "../../../public/images/MinAgrario.png";
+import img24 from "../../../public/images/newalac.png";
+import img25 from "../../../public/images/RW.png";
+import img26 from "../../../public/images/SEMEX.png";
+import img27 from "../../../public/images/SENASA.png";
+import img28 from "../../../public/images/Swissgenetics logo.png";
+import img29 from "../../../public/images/TOTALVET.png";
+import img30 from "../../../public/images/VETEX.png";
 import { StaticImageData } from "next/image";
 
 export const Sponsors: React.FC = () => {
-  const images: StaticImageData[] = [img1, img2, img3, img4,img5,img6,img7,img8,img9,img10,img11,img12];
+  const images: StaticImageData[] = [
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, /*img10,*/ img11, img12,
+    img13, img14, img15, img16, img17, img18, img19, img20, img21, img22,
+    img23, img24, img25, img26, img27, img28, img29, img30
+  ];
 
   return (
     <div className={styles["container-sponsors"]}>
-      <h1 className={styles["text-title"]}>LLEGAMOS GRACIAS A:</h1>
+      <h1 className={styles["text-title"]}> GRACIAS A:</h1>
       <div className={styles.slider}>
         <div className={styles["slide-track"]}>
           {images.map((image, index) => (
