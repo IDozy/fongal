@@ -12,20 +12,18 @@
 
 .box {
   height: 100vh;
-  display: flex;
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
-  background-color: #355C41;
+  background: rgb(228,228,230);
+  background: linear-gradient(135deg, rgba(228,228,230,1) 0%, rgba(53,92,65,1) 9%, rgba(92,60,53,1) 91%);
   
 }
 
 .container {
   height: 100vh;
   display: grid;
-  grid-template-columns: repeat(
-    auto-fit, minmax(150px,1fr)
-  );
+  grid-template-columns: auto auto;
   
   justify-content: center;
   align-items: center;
