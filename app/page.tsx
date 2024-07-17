@@ -728,7 +728,7 @@ const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
     ) : (
       <img width={"350px"} src={vaca.imageSrc} alt={vaca.name} />
     )}
-  </div>
+  </div>                                                                                                 
 );
 
 export default function Home() {

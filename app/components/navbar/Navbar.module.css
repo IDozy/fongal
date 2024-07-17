@@ -4,14 +4,14 @@
   top: 0;
   width: 100%;
   height: 50px; /* Ajusta esta altura según tus necesidades */
-  background-color: #e0e0e0; /* Plomo claro */
+  background-color: #E4E4E6; /* Plomo claro */
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem; /* Ajusta el padding horizontal */
   box-sizing: border-box;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1); /* Border inferior leve */
+  border-bottom: 3px solid rgba(0, 0, 0, 0.2); /* Border inferior leve */
 }
 
 .hidden {
@@ -43,7 +43,7 @@
 }
 
 .menuItems li a {
-  color: #000; /* Letras negras */
+  color: #211B1D; /* Color letras */
   text-decoration: none;
   transition: color 0.2s;
   padding: 0.5rem 0; /* Reduce el padding vertical de los enlaces del menú */
