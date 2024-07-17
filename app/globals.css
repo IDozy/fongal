@@ -91,7 +91,26 @@
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
+  
+font-family: 'Roboto';
+font-style: normal;
+color: #271714;
+text-transform: uppercase;
+
 }
+.front-content p,
+.back-content p {
+  margin: 5% 0; /* Espacio vertical de 5% entre párrafos */
+}
+
+.vacadescripcion-container{
+  display: flex;
+  flex-direction: column; /* Apila los elementos verticalmente */
+  align-items: center;    /* Centra los elementos horizontalmente */
+  text-align: center;     /* Centra el texto */
+  margin: 20px; 
+}
+
 
 .back-content {
   transform: rotateY(180deg);

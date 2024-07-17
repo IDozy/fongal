@@ -694,7 +694,7 @@ const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
     {type === "front" ? (
       <>
         <p>
-          <strong>Nombre:</strong> {vaca.name}
+          <strong>Nombre:</strong> <div className="vacadescripcion-container">{vaca.name}</div>
         </p>
 
         <p>
@@ -895,7 +895,7 @@ export default function Home() {
           ))}
         </div>
         <button ref={nextBtnRef} id="next-btn">
-          <FaArrowCircleRight size={28} fill="#636363" />
+          <FaArrowCircleRight size={28} fill="#5C3C35" />
         </button>
       </div>
     </div>
