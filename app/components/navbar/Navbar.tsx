@@ -1,7 +1,7 @@
 "use client"; // Esto no es necesario en Next.js. Puedes eliminar esta línea.
 import React, { useState, useEffect } from "react";
 import Link from "next/link"; // Importa Link de next/link
-import styles from '../Navbar/Navbar.module.css'; // Ajusta la ruta según tu estructura de archivos
+import styles from '../navbar/Navbar.module.css'; // Ajusta la ruta según tu estructura de archivos
 import UserMenu from "../footer/UserMenu";
 import { useRouter } from "next/navigation";
 
