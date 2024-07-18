@@ -149,7 +149,6 @@ export async function GET(request: NextRequest) {
     );
   }
 }
-
 export async function POST(request: NextRequest) {
   const body = await request.json();
   const {
@@ -166,7 +165,15 @@ export async function POST(request: NextRequest) {
     puntaje,
   } = body;
 
-  const nacimientoDate = new Date(nacimiento);
+  // Función para convertir la fecha en formato DD/MM/YYYY a YYYY-MM-DD
+  function convertirFecha(formato: string): string {
+    const [dia, mes, año] = formato.split('/');
+    return `${año}-${mes}-${dia}`;
+  }
+
+
+  const nacimientoISO = convertirFecha(nacimiento);
+  const nacimientoDate = new Date(nacimientoISO);
   const hoy = new Date();
   const diferenciaEnMilisegundos = hoy.getTime() - nacimientoDate.getTime();
   const diasNacida = Math.floor(
@@ -198,7 +205,7 @@ export async function POST(request: NextRequest) {
     data: {
       name,
       propietario,
-      nacimiento,
+      nacimiento: nacimientoISO, // Guarda la fecha en formato ISO en la base de datos
       categoria,
       diasNacida,
       establo,
