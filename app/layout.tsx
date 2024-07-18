@@ -30,7 +30,7 @@ export default async function RootLayout({
           <NavBar />
           <LoginModal />
           <RegisterModal />
-          <GanadoModal />
+         
           <main className="site-content">{children}</main>
           <Footer currentUser={currentUser} />
         </ClientOnly>

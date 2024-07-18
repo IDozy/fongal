@@ -66,7 +66,7 @@ const Input: React.FC<InputProps> = ({
       <label
         className={`
         absolute
-        text-md
+        text-sm
         duration-150
         transform
         -translate-y-3

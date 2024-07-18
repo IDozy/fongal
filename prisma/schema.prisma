@@ -65,5 +65,6 @@ model Ganado {
   descripcion String?
   raza        String?
   sexo        String?
-  imageSrc    String
+  imageSrc    String?
+  puntaje     String?
 }
