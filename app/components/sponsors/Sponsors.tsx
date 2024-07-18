@@ -30,7 +30,7 @@ import img27 from "../../../public/images/SENASA.png";
 import img28 from "../../../public/images/Swissgenetics logo.png";
 import img29 from "../../../public/images/TOTALVET.png";
 import img30 from "../../../public/images/VETEX.png";
-import { StaticImageData } from "next/image";
+import Image, { StaticImageData } from "next/image";
 
 export const Sponsors: React.FC = () => {
   const images: StaticImageData[] = [
@@ -46,7 +46,7 @@ export const Sponsors: React.FC = () => {
         <div className={styles["slide-track"]}>
           {images.map((image, index) => (
             <div className={styles.slide} key={index}>
-              <img
+              <Image
                 className={styles.image}
                 src={image.src}
                 alt={`sponsors${index + 1}`}
