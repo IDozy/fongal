@@ -84,7 +84,7 @@
     display: none;
     flex-direction: column;
     width: 100%;
-    background-color: #e0e0e0; /* Plomo claro */
+    background: rgba(53,92,65,1);
     position: fixed;
     top: 50px; /* Asegurar que el menú móvil aparezca justo debajo del navbar */
     left: 0;
@@ -119,7 +119,11 @@
 
   .hamburger.toggle .line3 {
     transform: rotate(45deg) translate(-5px, -6px);
-  }
+    -webkit-transform: rotate(45deg) translate(-5px, -6px);
+    -moz-transform: rotate(45deg) translate(-5px, -6px);
+    -ms-transform: rotate(45deg) translate(-5px, -6px);
+    -o-transform: rotate(45deg) translate(-5px, -6px);
+}
 }
 
 @media (min-width: 901px) {

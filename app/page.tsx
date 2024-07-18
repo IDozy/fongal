@@ -33,10 +33,13 @@ const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
   <div>
     {type === "front" ? (
       <>
+      
         <p>
-          <strong>Nombre:</strong> <div className="vacadescripcion-container">{vaca.name}</div>
+         <img className="vacafoto-container" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ /* position: 'relative',  */zIndex: 2}} />
         </p>
-
+        <p>
+          <strong>Nombre:</strong>{vaca.name}
+        </p>
         <p>
           <strong>Nacimiento:</strong> {vaca.nacimiento}
         </p>
@@ -67,7 +70,7 @@ const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
       </>
     ) : (
       <div className="imgvaca">
-        <img className="fotovaca" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ position: 'relative', zIndex: 2 }} />
+        <img className="fotovaca" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ /* position: 'relative',  */zIndex: 2 }} />
         
         <div className="vacanombre" style={{ position: 'relative', zIndex: 2 }}>
           <strong></strong> {vaca.name}
@@ -105,7 +108,7 @@ export default function Home() {
   const papers: Paper[] =
     ganadoData.length > 0
       ? [
-          { id: 1, front: "QR", back: <Description vaca={ganadoData[0]} /> },
+          { id: 1, front: "CATÁLOGO FONGAL 2024"/*"QR"*/, back: <Description vaca={ganadoData[0]} /> },
           ...ganadoData
             .slice(0, ganadoData.length - 1)
             .map((ganado, index) => ({
@@ -219,16 +222,6 @@ export default function Home() {
               </div>
               <div className="back">
                 <div className="back-content">{paper.back}
-
-
-{/* Rectángulos alineados */}
-<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '40%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
-<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
-<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '60%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
-         
-
-
-
                 </div>
               </div>
             </div>
