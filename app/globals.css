@@ -9,10 +9,18 @@
 }
 
 .box {
-  display: flex;
-  flex-direction: column;
+  width: 360px;
+  height: 800px;
 
-  height: 100vh;
+  display: grid;
+  grid:
+    "header header header" auto
+    "leftSide body rightSide" 1fr
+    "footer footer footer" auto
+    / auto 1fr auto;
+  gap: 8px;
+  
+  height: auto;
   justify-content: center;
   align-items: center;
   font-family: sans-serif;
