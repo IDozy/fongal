@@ -3,10 +3,6 @@ import React, { useEffect, useState } from "react";
 import ListPublic from "./component/ListPublic";
 
 
-
-
-
-
 const Student = () => {
   const [ganadoList, setStudentList] = useState([]);
 
@@ -17,7 +13,7 @@ const Student = () => {
   const GetAllStudents = () => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch("/api/ganado   ", {
+        const response = await fetch("/api/ganado/top3", {
           method: "GET",
         });
         if (!response.ok) {

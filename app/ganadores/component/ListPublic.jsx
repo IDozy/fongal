@@ -1,70 +1,27 @@
-
-
 "use client";
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
-import { Button } from "@mui/joy";
 import { useRouter } from "next/navigation";
-import axios from "axios";
-import toast from "react-hot-toast";
-import ConfirmDeleteModal from "@/app/components/modals/ConfirmDeleteModal";
-
-import { FaEye } from "react-icons/fa";
-import EditGanadoModal from "@/app/components/modals/EditGanadoModal";
 
 const ListPublic = ({ ganadoList, refreshData }) => {
   const [rowData, setRowData] = useState([]);
   const [searchInput, setSearchInput] = useState("");
-  const [selectedGanado, setSelectedGanado] = useState(null);
-  const [isEditModalOpen, setIsEditModalOpen] = useState(false);
-  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+
   const router = useRouter();
 
-  const openEditModal = (ganado) => {
-    setSelectedGanado(ganado);
-    setIsEditModalOpen(true);
-  };
-
-  const closeEditModal = () => {
-    setIsEditModalOpen(false);
-    setSelectedGanado(null);
-  };
-
-  const openDeleteModal = (ganado) => {
-    setSelectedGanado(ganado);
-    setIsDeleteModalOpen(true);
-  };
-
-  const closeDeleteModal = () => {
-    setIsDeleteModalOpen(false);
-    setSelectedGanado(null);
-  };
-
-  const deleteGanado = async () => {
-    try {
-      await axios.delete("/api/ganado", { data: { id: selectedGanado.id } });
-      toast.success("Ganado eliminado correctamente");
-      refreshData();
-      closeDeleteModal();
-    } catch (error) {
-      toast.error("Error al eliminar el Ganado");
-    }
-  };
-
-  const [columns, setColumns] = useState([
-   
+  const columns = [
+    {field:"puesto", headerName:"Puesto"},
     { field: "name", headerName: "Nombre", width: 150 },
     { field: "propietario", headerName: "Propietario", width: 150 },
-    { field: "nacimiento", headerName: "nacimiento", width: 100 },
-    { field: "categoria", headerName: "categoria", width: 200 },
-    { field: "diasNacida", headerName: "diasNacida", width: 100 },
-    { field: "establo", headerName: "establo", width: 100 },
-    { field: "remate", headerName: "remate", width: 70 },
-    { field: "raza", headerName: "raza", width: 100 },
-    { field: "sexo", headerName: "sexo", width: 100 },
-    { field: "puntaje", headerName: "puntaje", width: 100 },
-   
-  ]);
+    { field: "nacimiento", headerName: "Nacimiento", width: 100 },
+    { field: "categoria", headerName: "Categoria", width: 200 },
+    { field: "diasNacida", headerName: "Dias Nacida", width: 100 },
+    { field: "establo", headerName: "Establo", width: 100 },
+    { field: "remate", headerName: "Remate", width: 70 },
+    { field: "raza", headerName: "Raza", width: 100 },
+    { field: "sexo", headerName: "Sexo", width: 100 },
+    { field: "puntaje", headerName: "Puntaje", width: 100 },
+  ];
 
   useEffect(() => {
     ganadoList && setRowData(ganadoList);
@@ -96,9 +53,16 @@ const ListPublic = ({ ganadoList, refreshData }) => {
           style={{ background: "#fff" }}
           rows={rowData}
           columns={columns}
-          pageSize={20}
-          rowsPerPageOptions={[20, 25, 50, 100]}
-          pagination
+          
+          pagination={false} // Desactivar paginación
+          disableColumnFilter // Desactivar filtro de columna
+          disableColumnMenu // Desactivar menú de columna
+          disableColumnSelector // Desactivar selector de columna
+          disableDensitySelector // Desactivar selector de densidad
+          hideFooterPagination // Ocultar paginación en el pie
+          disableSelectionOnClick // Desactivar selección al hacer clic
+          disableColumnReorder // Desactivar reordenamiento de columnas
+
           sx={{
             "& .MuiDataGrid-cell": {
               borderRight: "1px solid rgba(224, 224, 224, 1)",
@@ -109,24 +73,8 @@ const ListPublic = ({ ganadoList, refreshData }) => {
           }}
         />
       </div>
-      {isEditModalOpen && selectedGanado && (
-        <EditGanadoModal
-          isOpen={isEditModalOpen}
-          onClose={closeEditModal}
-          ganado={selectedGanado}
-          refreshData={refreshData}
-        />
-      )}
-      {isDeleteModalOpen && selectedGanado && (
-        <ConfirmDeleteModal
-          isOpen={isDeleteModalOpen}
-          onClose={closeDeleteModal}
-          onConfirm={deleteGanado}
-        />
-      )}
     </div>
   );
 };
 
 export default ListPublic;
-
