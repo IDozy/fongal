@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Nunito } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navbar/Navbar";
 import Footer from "./components/footer/Footer";
@@ -11,7 +11,7 @@ import RegisterModal from "./components/modals/RegisterModal";
 import GanadoModal from "./components/modals/GanadoModal";
 import { Sponsors } from "./components/sponsors/Sponsors";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Nunito({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Feria Fongal 2024",
