@@ -1,3 +1,252 @@
+
+"use client";
+import { useEffect, useRef, useState } from "react";
+import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
+
+
+
+interface Ganado {
+  id: string;
+  name: string;
+  nacimiento: string;
+  diasNacida: number;
+  categoria: string;
+  establo: string;
+  remate: boolean;
+  propietario: string;
+  descripcion: string;
+  raza: string;
+  sexo: string;
+  imageSrc: string;
+}
+
+interface Paper {
+  id: number;
+  front: React.ReactNode;
+  back: React.ReactNode;
+}
+
+const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
+  vaca,
+  type,
+}) => (
+  <div>
+    {type === "front" ? (
+      <>
+        <p>
+          <strong>Nombre:</strong> <div className="vacadescripcion-container">{vaca.name}</div>
+        </p>
+
+        <p>
+          <strong>Nacimiento:</strong> {vaca.nacimiento}
+        </p>
+        <p>
+          <strong>Días Nacida:</strong> {vaca.diasNacida}
+        </p>
+        <p>
+          <strong>Categoria:</strong> {vaca.categoria}
+        </p>
+        <p>
+          <strong>Establo:</strong> {vaca.establo}
+        </p>
+        <p>
+          <strong>Remate:</strong> {vaca.remate ? "Sí" : "No"}
+        </p>
+        <p>
+          <strong>Propietario:</strong> {vaca.propietario}
+        </p>
+        <p>
+          <strong>Descripción:</strong> {vaca.descripcion}
+        </p>
+        <p>
+          <strong>Raza:</strong> {vaca.raza}
+        </p>
+        <p>
+          <strong>Sexo:</strong> {vaca.sexo}
+        </p>
+      </>
+    ) : (
+      <div className="imgvaca">
+        <img className="fotovaca" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ position: 'relative', zIndex: 2 }} />
+        
+        <div className="vacanombre" style={{ position: 'relative', zIndex: 2 }}>
+          <strong></strong> {vaca.name}
+        </div>
+      </div>
+    )}
+  </div>
+);
+
+export default function Home() {
+  const prevBtnRef = useRef<HTMLButtonElement>(null);
+  const nextBtnRef = useRef<HTMLButtonElement>(null);
+  const bookRef = useRef<HTMLDivElement>(null);
+  const [currentLocation, setCurrentLocation] = useState(0);
+  const [ganadoData, setGanadoData] = useState<Ganado[]>([]);
+
+  useEffect(() => {
+    const fetchGanado = async () => {
+      try {
+        const response = await fetch("/api/ganado", {
+          method: "GET",
+        });
+        if (!response.ok) {
+          throw new Error("Error fetching ganado");
+        }
+        const data = await response.json();
+        setGanadoData(data);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+    fetchGanado();
+  }, []);
+  console.log(ganadoData);
+  const papers: Paper[] =
+    ganadoData.length > 0
+      ? [
+          { id: 1, front: "QR", back: <Description vaca={ganadoData[0]} /> },
+          ...ganadoData
+            .slice(0, ganadoData.length - 1)
+            .map((ganado, index) => ({
+              id: index + 2,
+              front: <Description vaca={ganado} type="front" />,
+              
+              back: <Description vaca={ganadoData[index + 1]} />,
+            })),
+          {
+            id: ganadoData.length + 1,
+            front: (
+              <Description
+                vaca={ganadoData[ganadoData.length - 1]}
+                type="front"
+              />
+            ),
+            back: "Fin",
+          },
+        ]
+      : [];
+
+  const paperRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+    const maxLocation = papers.length;
+
+    const goNextPage = () => {
+      if (currentLocation < maxLocation) {
+        const paper = paperRefs.current[currentLocation];
+        if (paper) {
+          if (currentLocation === 0) openBook();
+          paper.classList.add("flipped");
+          paper.style.zIndex = `${currentLocation}`;
+          if (currentLocation === papers.length - 1) closeBook(false);
+          setCurrentLocation(currentLocation + 1);
+        }
+      }
+    };
+
+    const goPrevPage = () => {
+      if (currentLocation > 0) {
+        const paper = paperRefs.current[currentLocation - 1];
+        if (paper) {
+          if (currentLocation === 1) closeBook(true);
+          paper.classList.remove("flipped");
+          paper.style.zIndex = `${papers.length - currentLocation}`;
+          if (currentLocation === papers.length) openBook();
+          setCurrentLocation(currentLocation - 1);
+        }
+      }
+    };
+
+    prevBtn?.addEventListener("click", goPrevPage);
+    nextBtn?.addEventListener("click", goNextPage);
+
+    return () => {
+      prevBtn?.removeEventListener("click", goPrevPage);
+      nextBtn?.removeEventListener("click", goNextPage);
+    };
+  }, [currentLocation, papers]);
+
+  const openBook = () => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = "translateX(50%)";
+      prevBtn.style.transform = "translateX(-230px)";
+      nextBtn.style.transform = "translateX(230px)";
+    }
+  };
+
+  const closeBook = (isAtBeginning?: boolean) => {
+    const book = bookRef.current;
+    const prevBtn = prevBtnRef.current;
+    const nextBtn = nextBtnRef.current;
+
+    if (book && prevBtn && nextBtn) {
+      book.style.transform = isAtBeginning
+        ? "translateX(0%)"
+        : "translateX(100%)";
+      prevBtn.style.transform = "translateX(0px)";
+      nextBtn.style.transform = "translateX(0px)";
+    }
+  };
+
+  return (
+    <div className="box">
+      <div className="container">
+        <button ref={prevBtnRef} id="prev-btn">
+          <FaArrowCircleLeft size={28} fill="#5C3C35" />
+        </button>
+        <div ref={bookRef} id="book" className="book">
+          {papers.map((paper, index) => (
+            <div
+              key={paper.id}
+              ref={(element) => {
+                paperRefs.current[index] = element;
+              }}
+              id={`p${paper.id}`}
+              style={{ zIndex: `${papers.length - index}` }}
+              className="paper"
+            >
+              <div className="front">
+                <div className="front-content">{paper.front}
+
+                </div>
+              </div>
+              <div className="back">
+                <div className="back-content">{paper.back}
+
+
+{/* Rectángulos alineados */}
+<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '40%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
+<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
+<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '60%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
+         
+
+
+
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+        <button ref={nextBtnRef} id="next-btn">
+          <FaArrowCircleRight size={28} fill="#5C3C35" />
+        </button>
+      </div>
+    </div>
+  );
+}
+
+
+
+
+
+
 /*
 "use client";
 import { useEffect, useRef, useState } from "react";
@@ -660,246 +909,3 @@ export default function Home() {
   );
 }
 */
-
-"use client";
-import { useEffect, useRef, useState } from "react";
-import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-
-
-
-interface Ganado {
-  id: string;
-  name: string;
-  nacimiento: string;
-  diasNacida: number;
-  categoria: string;
-  establo: string;
-  remate: boolean;
-  propietario: string;
-  descripcion: string;
-  raza: string;
-  sexo: string;
-  imageSrc: string;
-}
-
-interface Paper {
-  id: number;
-  front: React.ReactNode;
-  back: React.ReactNode;
-}
-
-const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
-  vaca,
-  type,
-}) => (
-  <div>
-    {type === "front" ? (
-      <>
-        <p>
-          <strong>Nombre:</strong> <div className="vacadescripcion-container">{vaca.name}</div>
-        </p>
-
-        <p>
-          <strong>Nacimiento:</strong> {vaca.nacimiento}
-        </p>
-        <p>
-          <strong>Días Nacida:</strong> {vaca.diasNacida}
-        </p>
-        <p>
-          <strong>Categoria:</strong> {vaca.categoria}
-        </p>
-        <p>
-          <strong>Establo:</strong> {vaca.establo}
-        </p>
-        <p>
-          <strong>Remate:</strong> {vaca.remate ? "Sí" : "No"}
-        </p>
-        <p>
-          <strong>Propietario:</strong> {vaca.propietario}
-        </p>
-        <p>
-          <strong>Descripción:</strong> {vaca.descripcion}
-        </p>
-        <p>
-          <strong>Raza:</strong> {vaca.raza}
-        </p>
-        <p>
-          <strong>Sexo:</strong> {vaca.sexo}
-        </p>
-      </>
-    ) : (
-      <div className="imgvaca">
-        <img className="fotovaca" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ position: 'relative', zIndex: 2 }} />
-        
-        <div className="vacanombre" style={{ position: 'relative', zIndex: 2 }}>
-          <strong></strong> {vaca.name}
-        </div>
-      </div>
-    )}
-  </div>
-);
-
-export default function Home() {
-  const prevBtnRef = useRef<HTMLButtonElement>(null);
-  const nextBtnRef = useRef<HTMLButtonElement>(null);
-  const bookRef = useRef<HTMLDivElement>(null);
-  const [currentLocation, setCurrentLocation] = useState(0);
-  const [ganadoData, setGanadoData] = useState<Ganado[]>([]);
-
-  useEffect(() => {
-    const fetchGanado = async () => {
-      try {
-        const response = await fetch("/api/ganado", {
-          method: "GET",
-        });
-        if (!response.ok) {
-          throw new Error("Error fetching ganado");
-        }
-        const data = await response.json();
-        setGanadoData(data);
-      } catch (error) {
-        console.error("Error fetching data: ", error);
-      }
-    };
-    fetchGanado();
-  }, []);
-  console.log(ganadoData);
-  const papers: Paper[] =
-    ganadoData.length > 0
-      ? [
-          { id: 1, front: "QR", back: <Description vaca={ganadoData[0]} /> },
-          ...ganadoData
-            .slice(0, ganadoData.length - 1)
-            .map((ganado, index) => ({
-              id: index + 2,
-              front: <Description vaca={ganado} type="front" />,
-              
-              back: <Description vaca={ganadoData[index + 1]} />,
-            })),
-          {
-            id: ganadoData.length + 1,
-            front: (
-              <Description
-                vaca={ganadoData[ganadoData.length - 1]}
-                type="front"
-              />
-            ),
-            back: "Fin",
-          },
-        ]
-      : [];
-
-  const paperRefs = useRef<(HTMLDivElement | null)[]>([]);
-
-  useEffect(() => {
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-    const maxLocation = papers.length;
-
-    const goNextPage = () => {
-      if (currentLocation < maxLocation) {
-        const paper = paperRefs.current[currentLocation];
-        if (paper) {
-          if (currentLocation === 0) openBook();
-          paper.classList.add("flipped");
-          paper.style.zIndex = `${currentLocation}`;
-          if (currentLocation === papers.length - 1) closeBook(false);
-          setCurrentLocation(currentLocation + 1);
-        }
-      }
-    };
-
-    const goPrevPage = () => {
-      if (currentLocation > 0) {
-        const paper = paperRefs.current[currentLocation - 1];
-        if (paper) {
-          if (currentLocation === 1) closeBook(true);
-          paper.classList.remove("flipped");
-          paper.style.zIndex = `${papers.length - currentLocation}`;
-          if (currentLocation === papers.length) openBook();
-          setCurrentLocation(currentLocation - 1);
-        }
-      }
-    };
-
-    prevBtn?.addEventListener("click", goPrevPage);
-    nextBtn?.addEventListener("click", goNextPage);
-
-    return () => {
-      prevBtn?.removeEventListener("click", goPrevPage);
-      nextBtn?.removeEventListener("click", goNextPage);
-    };
-  }, [currentLocation, papers]);
-
-  const openBook = () => {
-    const book = bookRef.current;
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-
-    if (book && prevBtn && nextBtn) {
-      book.style.transform = "translateX(50%)";
-      prevBtn.style.transform = "translateX(-230px)";
-      nextBtn.style.transform = "translateX(230px)";
-    }
-  };
-
-  const closeBook = (isAtBeginning?: boolean) => {
-    const book = bookRef.current;
-    const prevBtn = prevBtnRef.current;
-    const nextBtn = nextBtnRef.current;
-
-    if (book && prevBtn && nextBtn) {
-      book.style.transform = isAtBeginning
-        ? "translateX(0%)"
-        : "translateX(100%)";
-      prevBtn.style.transform = "translateX(0px)";
-      nextBtn.style.transform = "translateX(0px)";
-    }
-  };
-
-  return (
-    <div className="box">
-      <div className="container">
-        <button ref={prevBtnRef} id="prev-btn">
-          <FaArrowCircleLeft size={28} fill="#5C3C35" />
-        </button>
-        <div ref={bookRef} id="book" className="book">
-          {papers.map((paper, index) => (
-            <div
-              key={paper.id}
-              ref={(element) => {
-                paperRefs.current[index] = element;
-              }}
-              id={`p${paper.id}`}
-              style={{ zIndex: `${papers.length - index}` }}
-              className="paper"
-            >
-              <div className="front">
-                <div className="front-content">{paper.front}
-
-                </div>
-              </div>
-              <div className="back">
-                <div className="back-content">{paper.back}
-
-
-{/* Rectángulos alineados */}
-<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '40%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
-<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
-<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '60%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
-         
-
-
-
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-        <button ref={nextBtnRef} id="next-btn">
-          <FaArrowCircleRight size={28} fill="#5C3C35" />
-        </button>
-      </div>
-    </div>
-  );
-}
