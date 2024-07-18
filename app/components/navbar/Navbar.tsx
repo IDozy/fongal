@@ -3,10 +3,12 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link"; // Importa Link de next/link
 import styles from '../Navbar/Navbar.module.css'; // Ajusta la ruta según tu estructura de archivos
 import UserMenu from "../footer/UserMenu";
+import { useRouter } from "next/navigation";
 
 const NavBar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
+  const router = useRouter()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,6 +28,11 @@ const NavBar = () => {
     setNavActive(false);
   };
 
+  const navGanadores = () =>{
+    setNavActive(false);
+   router.push("/ganadores")
+  }
+
   const toggleNav = () => {
     setNavActive(!isNavActive);
   };
@@ -42,7 +49,7 @@ const NavBar = () => {
       <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
         <ul className={styles.menuItems}>
           <li>
-            <Link href="/cursos" onClick={closeNav}>
+            <Link href="/ganadores" onClick={navGanadores}>
               Explorar
             </Link>
           </li>
