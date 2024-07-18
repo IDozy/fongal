@@ -10,9 +10,17 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
-const GanadoModal = () => {
+interface CreateStudentModalProps {
+  refreshData: () => void;
+}
+
+const GanadoModal: React.FC<CreateStudentModalProps> = ({
+  refreshData,
+})  => {
   const router = useRouter();
+  const createModal = useGanadoModal()
   const ganadoModal = useGanadoModal();
+  
   const [isLoading, setIsLoading] = useState(false);
 
   const {
@@ -60,9 +68,10 @@ const GanadoModal = () => {
       .post("./api/ganado", transformedData)
       .then(() => {
         toast.success("Nuevo Ganado agregado");
+        createModal.onClose(refreshData)
         router.refresh();
         reset();
-        ganadoModal.onClose();
+       // ganadoModal.onClose();
       })
       .catch(() => {
         toast.error("Ha ocurrido un error");
@@ -75,8 +84,9 @@ const GanadoModal = () => {
   return (
     <div>
       <Modal
+      disabled={isLoading}
         isOpen={ganadoModal.isOpen}
-        onClose={ganadoModal.onClose}
+        onClose={()=> createModal.onClose(refreshData)}
         onSubmit={handleSubmit(onSubmit)}
         actionLabel="Crear"
         title="Crear"
@@ -163,6 +173,7 @@ const GanadoModal = () => {
                 required
               />
             </div>
+            <div className="flex gap-4">
             <Input
               id="sexo"
               label="Sexo"
@@ -171,6 +182,15 @@ const GanadoModal = () => {
               errors={errors}
               required
             />
+            <Input
+                id="puntaje"
+                label="Puntaje"
+                disabled={isLoading}
+                register={register}
+                errors={errors}
+                required
+              />
+              </div>
             <ImageUpload
               value={imageSrc}
               onChange={(value) => setCustomValue("imageSrc", value)}

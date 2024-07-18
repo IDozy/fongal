@@ -31,7 +31,7 @@ export default async function RootLayout({
           <NavBar />
           <LoginModal />
           <RegisterModal />
-          <GanadoModal />
+         
           <main className="site-content">{children}</main>
           <Sponsors/>
           <Footer currentUser={currentUser} />
