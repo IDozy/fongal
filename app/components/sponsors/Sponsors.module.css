@@ -1,0 +1,83 @@
+.container-sponsors {
+  display: grid;
+  place-items: center;
+  padding-top: 1rem;
+  background-color: #ffd89b;
+}
+
+.slider {
+  height: 150px;
+  margin: auto;
+  position: relative;
+  width: 90%;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.slide-track {
+  display: flex;
+  width: calc(250px * 18);
+  animation: scroll 20s ease-in-out infinite;
+}
+
+.slide-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-250px * 9));
+  }
+}
+
+.slide {
+  height: 200px;
+  width: 200px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  perspective: 100px;
+}
+
+.slide img {
+  width: 100%; /* Ajustado al 100% para ocupar todo el espacio del contenedor */
+  transition: transform 1s;
+}
+
+.slide img:hover {
+  transform: translateZ(20px);
+}
+
+.slider::before,
+.slider::after {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0.137) 0%, rgba(255, 255, 255, 0) 100%);
+  content: '';
+  height: 100%;
+  position: absolute;
+  width: 15%;
+  z-index: 2;
+}
+
+.slider::before {
+  left: 0;
+  top: 0;
+}
+
+.slider::after {
+  right: 0;
+  top: 0;
+  transform: rotateZ(180deg);
+}
+
+.text-title {
+  font-family: 'Roboto', sans-serif; /* Ejemplo de una fuente gratuita */
+  color: #004d40; /* Color verde oscuro */
+  text-align: center; /* Centrar el texto */
+  margin-bottom: 0.5rem; /* Espacio inferior */
+  font-size: 50px;
+}

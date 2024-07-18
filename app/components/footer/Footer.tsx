@@ -34,7 +34,7 @@ const Footer: React.FC<NavbarProps> = ({ currentUser }) => {
         </a>
         <UserMenu currentUser={currentUser} />
       </div>
-      <div className={styles.copyright}>&copy; 2024 Dozy2024</div>
+      <div className={styles.copyright}>&copy; 2024 Quipu</div>
     </footer>
   );
 };
