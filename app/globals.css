@@ -2,56 +2,43 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Reset CSS */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* Box Styles */
 .box {
-  display: flex;  
-  width: 100%;
-  height: 800px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-
-
+  width:100%;
   height: 100vh;  
-  align-items: center;
-  font-family: sans-serif;
-  /* background: #ffd89b;
-  background: -webkit-linear-gradient(to right, #ffd89b, #19547b);
-  background: linear-gradient(to right, #ffd89b, #19547b);  
- */
-
-  background: #ffd89b; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to bottom,
-    #19547b,
-    #ffd89b
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(
-    to bottom,
-    #19547b,
-    #ffd89b
-  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  justify-content: center;
+  align-items:center;
+  background: linear-gradient(to bottom, #19547b, #ffd89b); /* Gradiente de fondo */
 }
 
+/* Container Styles */
 .container {
   height: 100vh;
   display: flex;
-  grid-template-columns: auto auto;
-
   justify-content: center;
   align-items: center;
+  grid-template-columns: auto auto;
 }
 
+/* Book Styles */
 .book {
   position: relative;
   width: 450px;
   height: 600px;
   transition: transform 0.5s;
+  -webkit-transition: transform 0.5s;
+  -moz-transition: transform 0.5s;
+  -ms-transition: transform 0.5s;
+  -o-transition: transform 0.5s;
 }
 
 .paper {
@@ -73,12 +60,8 @@
   left: 0;
   transform-origin: left;
   transition: transform 0.5s;
-  box-sizing: border-box;
   border-radius: 48px;
-  -webkit-border-radius: 48px;
-  -moz-border-radius: 48px;
-  -ms-border-radius: 48px;
-  -o-border-radius: 48px;
+  box-sizing: border-box;
 }
 
 .front {
@@ -99,63 +82,49 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  box-sizing: border-box;
   border: 2px solid #5c3c35;
   border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
-
-  font-family: "Roboto";
-  font-style: normal;
   color: #271714;
   text-transform: uppercase;
-  font-size: clamp(11px, 4vw + 1rem, 20px);
+  font-size: clamp(12px, 4vw + 1rem, 18px);
+  box-sizing: border-box;
 }
+
 .front-content p,
 .back-content p {
   margin: 5% 0; /* Espacio vertical de 5% entre párrafos */
 }
 
-.vacadescripcion-container {
-  display: flex;
-  flex-direction: column; /* Apila los elementos verticalmente */
-  align-items: center; /* Centra los elementos horizontalmente */
-  text-align: center; /* Centra el texto */
-  margin: 20px;
-}
-
+/* Name Styles */
 .vacanombre {
   position: fixed;
   width: 329px;
   height: 101px;
   text-align: center;
   text-shadow: 2px -2px 0px rgba(255, 0, 0, 0.3);
-  font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
   font-size: clamp(24px, 4vw + 1rem, 48px);
-  /* background: -webkit-linear-gradient(58deg, #1FBC9C, #3398DB);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
   text-transform: uppercase;
   line-height: 85px;
   color: #35231f;
+}
+
+.vacafoto-container{
+  display: none;  
 }
 
 .back-content {
   transform: rotateY(180deg);
 }
 
-/* Paper flip effect */
+/* Paper Flip Effect */
 .flipped .front,
 .flipped .back {
   transform: rotateY(-180deg);
 }
 
-/* Controller Buttons */
+/* Button Styles */
 button {
   border: none;
   background-color: transparent;
@@ -179,68 +148,91 @@ i {
   color: gray;
 }
 
+/* Photo Styles */
 .fotovaca {
-  
-  border: 0px none rgba(0, 0, 0, 1);
+  border: none;
   border-radius: 9px;
   background-blend-mode: hue;
-  box-shadow: 0px 4px 0px 1px rgba(0, 0, 0, 0.28);
+  box-shadow: 0px 4px 0px 1px rgba(0, 0, 0, 0.28);  
 }
 
+/* Media Queries */
 @media (max-width: 750px) {
   .container {
-    margin-top: 100px;
+    margin-top: 10%;
     flex-direction: column;
-    width: 450px;
+    width: 100%;
     align-items: center;
   }
+
   .book {
-    width: 250px;
-   
-    transform: translateX(0%) !important;
-    -webkit-transform: translateX(0%) !important;
-    -moz-transform: translateX(0%) !important;
-    -ms-transform: translateX(0%) !important;
-    -o-transform: translateX(0%) !important;
+    display: grid;
+    grid-template-columns: repeat(auto-fit(150px,1fr));
+    transform: translateX(-2%) !important;
+    -webkit-transform: translateX(-2%) !important;
+    -moz-transform: translateX(-2%) !important;
+    -ms-transform: translateX(-2%) !important;
+    -o-transform: translateX(-2%) !important;
+    /*overflow:scroll;    Aseguraqueelcontenidoadicionalsescrolle*/
+    height: 90%;    /*Asumiendounaalturadeejemplopara.book*/
+    width: 100%;
+    position: relative;
 }
 
-  .fotovaca {
+  .fotovaca {/*La que no se muestra*/
     width: 100px;
+    display: none;
   }
+  
+  .vacafoto-container {
+  border-radius: 50px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(10px, 1fr)); /* Ajusta el contenido para que se ajuste al contenedor */
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  max-width: 80%; /* Evita que el contenedor sobrepase su contenedor padre */
+  max-height: 300px;
+  overflow: hidden; /* Asegura que el contenido adicional se oculte */
+}
 
   .rectangle {
     width: 100px !important;
   }
 
-  .imgvaca {
-  }
-
-  .paper  {
+  .paper {
     display: flex;
     flex-direction: column;
     max-width: 450px;
     position: absolute;
     transform: translateX(0);
-    -webkit-transform: translateX(0);
-    -moz-transform: translateX(0);
-    -ms-transform: translateX(0);
-    -o-transform: translateX(0);
-}
-  .front {
-    display: flex;
-   
-
   }
-  .back{
+
+  .front,
+  .back {
     display: flex;
+    box-shadow: none;
+  }
+
+  .front-content,
+.back-content {  
+  padding: 10%;
+  font-size: clamp(10px, 4vw + 1rem, 14px);
+  border: none;
+}
+
+  .back {
     position: relative;
   }
-  #next-btn, #prev-btn{
+
+  #next-btn,
+  #prev-btn {
     transform: translateX(0%) !important;
-    -webkit-transform: translateX(0%) !important;
-    -moz-transform: translateX(0%) !important;
-    -ms-transform: translateX(0%) !important;
-    -o-transform: translateX(0%) !important;
     z-index: 10;
-}
+  }
+  .vacanombre{
+    display: none;
+  }
+
 }
