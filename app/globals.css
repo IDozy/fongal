@@ -128,7 +128,7 @@
   width: 329px;
   height: 101px;
   text-align: center;
-
+  text-shadow: 2px -2px 0px rgba(0, 0, 0, 0.3);
   font-family: "Ubuntu";
   font-style: normal;
   font-weight: 400;
@@ -174,13 +174,11 @@ i {
 }
 
 .fotovaca {
-  box-sizing: border-box;
-  border: 2px solid #5c3c35;
-  border-radius: 50px;
-  -webkit-border-radius: 50px;
-  -moz-border-radius: 50px;
-  -ms-border-radius: 50px;
-  -o-border-radius: 50px;
+  
+  border: 0px none rgba(0, 0, 0, 1);
+  border-radius: 9px;
+  background-blend-mode: hue;
+  box-shadow: 0px 4px 0px 1px rgba(0, 0, 0, 0.28);
 }
 
 @media (max-width: 750px) {
