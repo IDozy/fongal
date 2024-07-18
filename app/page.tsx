@@ -665,6 +665,8 @@ export default function Home() {
 import { useEffect, useRef, useState } from "react";
 import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
 
+
+
 interface Ganado {
   id: string;
   name: string;
@@ -882,9 +884,9 @@ export default function Home() {
 
 
 {/* Rectángulos alineados */}
+<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '40%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
 <div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '50%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
 <div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '60%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
-<div className="rectangle" style={{ position: 'absolute', width: '450px', height: '40.29px', left: '50%', top: '70%', transform: 'translate(-50%, -50%)', background: '#35505C', zIndex: 1 }}></div>
          
 
 

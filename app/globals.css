@@ -32,6 +32,7 @@ background: linear-gradient(to bottom, #19547b, #ffd89b); /* W3C, IE 10+/ Edge, 
 
 .container {
   height: 100vh;
+  
   display: grid;
   grid-template-columns: auto auto;
   
@@ -136,7 +137,7 @@ font-size: clamp(11px, 4vw + 1rem, 20px);
   height: 101px;
   text-align: center;
   
-  font-family: 'Ubuntu';
+  font-family: 'Nunito';
   font-style: normal;
   font-weight: 400;
   font-size: clamp(24px, 4vw + 1rem, 48px);
