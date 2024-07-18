@@ -15,7 +15,7 @@
 
 
   background: rgb(228,228,230);
-  background: linear-gradient(135deg, rgba(228,228,230,1) 0%, rgba(53,92,65,1) 14%, rgba(92,60,53,1) 92%);
+  background: linear-gradient(135deg, rgba(228,228,230,1) 0%, rgba(53,92,65,1) 14%);
 }
 
 .hidden {
@@ -47,7 +47,7 @@
 }
 
 .menuItems li a {
-  color: #DBA17F; /* Color letras */
+  color: #ffd89b; /* Color letras */
   text-decoration: none;
   transition: color 0.2s;
   padding: 0.5rem 0; /* Reduce el padding vertical de los enlaces del menú */
