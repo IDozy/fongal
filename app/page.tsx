@@ -726,13 +726,13 @@ const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
         </p>
       </>
     ) : (
-      <>
+      <div className="imgvaca">
         <img className="fotovaca" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ position: 'relative', zIndex: 2 }} />
         
         <div className="vacanombre" style={{ position: 'relative', zIndex: 2 }}>
           <strong></strong> {vaca.name}
         </div>
-      </>
+      </div>
     )}
   </div>
 );
