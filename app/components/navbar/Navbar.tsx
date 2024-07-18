@@ -42,9 +42,6 @@ const NavBar = () => {
       <figure className={styles.PublicHeader_logo}>
       <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024" />
 
-        <svg fill="none" xmlns="http://www.w3.org/2000/svg">
-          {/* SVG content here */}
-        </svg>
       </figure>
       <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
         <ul className={styles.menuItems}>
