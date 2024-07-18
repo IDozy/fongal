@@ -173,8 +173,8 @@ i {
     -moz-transform: translateX(-2%) !important;
     -ms-transform: translateX(-2%) !important;
     -o-transform: translateX(-2%) !important;
-    overflow:scroll;    /*Aseguraqueelcontenidoadicionalsescrolle*/
-    height: 100%;    /*Asumiendounaalturadeejemplopara.book*/
+    /*overflow:scroll;    Aseguraqueelcontenidoadicionalsescrolle*/
+    height: 90%;    /*Asumiendounaalturadeejemplopara.book*/
     width: 100%;
     position: relative;
 }
@@ -217,7 +217,7 @@ i {
 
   .front-content,
 .back-content {  
-  padding: 5%;
+  padding: 10%;
   font-size: clamp(10px, 4vw + 1rem, 14px);
   border: none;
 }
