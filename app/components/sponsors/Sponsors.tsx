@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Sponsors.module.css";
-import img1 from "../../../public/images/AGP SEMILLAS.png";
+import img1 from "../../../public/images/AGPSEMILLAS.png";
 import img2 from "../../../public/images/AGRORURAL.png";
 import img3 from "../../../public/images/AGROVET.png";
 import img4 from "../../../public/images/CUSQUEÑA LOGO.png";
@@ -32,9 +32,43 @@ import img29 from "../../../public/images/TOTALVET.png";
 import img30 from "../../../public/images/VETEX.png";
 import Image, { StaticImageData } from "next/image";
 
-export const Sponsors: React.FC = () => {
+const images: { src: StaticImageData, width: number, height: number }[] = [
+  { src: img1, width: 200, height: 200 }, // reemplaza con las dimensiones reales
+  { src: img2, width: 200, height: 200 },
+  { src: img3, width: 200, height: 200 },
+  { src: img4, width: 200, height: 200 },
+  { src: img5, width: 200, height: 200 },
+  { src: img6, width: 200, height: 200 },
+  { src: img7, width: 200, height: 200 },
+  { src: img8, width: 200, height: 200 },
+  { src: img9, width: 200, height: 200 },
+  { src: img10, width: 200, height: 200 },
+  { src: img11, width: 200, height: 200 },
+  { src: img12, width: 200, height: 200 },
+  { src: img13, width: 200, height: 200 },
+  { src: img14, width: 200, height: 200 },
+  { src: img15, width: 200, height: 200 },
+  { src: img16, width: 200, height: 200 },
+  { src: img17, width: 200, height: 200 },
+  { src: img18, width: 200, height: 200 },
+  { src: img19, width: 200, height: 200 },
+  { src: img20, width: 200, height: 200 },
+  { src: img21, width: 200, height: 200 },
+  { src: img22, width: 200, height: 200 },
+  { src: img23, width: 200, height: 200 },
+  { src: img24, width: 200, height: 200 },
+  { src: img25, width: 200, height: 200 },
+  { src: img26, width: 200, height: 200 },
+  { src: img27, width: 200, height: 200 },
+  { src: img28, width: 200, height: 200 },
+  { src: img29, width: 200, height: 200 },
+  { src: img30, width: 200, height: 200 }
+];
+
+
+/* export const Sponsors: React.FC = () => {
   const images: StaticImageData[] = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, /*img10,*/ img11, img12,
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12,
     img13, img14, img15, img16, img17, img18, img19, img20, img21, img22,
     img23, img24, img25, img26, img27, img28, img29, img30
   ];
@@ -57,5 +91,30 @@ export const Sponsors: React.FC = () => {
       </div>
     </div>
   );
+}; */
+
+/*otro code sin error de imagen*/
+export const Sponsors: React.FC = () => {
+  return (
+    <div className={styles["container-sponsors"]}>
+      <h1 className={styles["text-title"]}> GRACIAS A:</h1>
+      <div className={styles.slider}>
+        <div className={styles["slide-track"]}>
+          {images.map((image, index) => (
+            <div className={styles.slide} key={index}>
+              <Image
+                className={styles.image}
+                src={image.src}
+                alt={`sponsors${index + 1}`}
+                width={image.width}
+                height={image.height}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
+
 export default Sponsors;
