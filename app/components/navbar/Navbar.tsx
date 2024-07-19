@@ -40,8 +40,9 @@ const NavBar = () => {
   return (
     <div className={`${styles.PublicHeader} ${visible ? '' : styles.hidden}`}>
       <figure className={styles.PublicHeader_logo}>
-      <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024" />
-
+      <a href="http://localhost:3000"> {/* logo inicio */}
+      <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024"/>
+      </a>
       </figure>
       <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
         <ul className={styles.menuItems}>

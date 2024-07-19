@@ -66,6 +66,31 @@ const images: { src: StaticImageData, width: number, height: number }[] = [
 ];
 
 
+export const Sponsors: React.FC = () => {
+  return (
+    <div className={styles["container-sponsors"]}>
+      <h1 className={styles["text-title"]}> GRACIAS A:</h1>
+      <div className={styles.slider}>
+        <div className={styles["slide-track"]}>
+          {images.map((image, index) => (
+            <div className={styles.slide} key={index}>
+              <Image
+                className={styles.image}
+                src={image.src}
+                alt={`sponsors${index + 1}`}
+                width={image.width}
+                height={image.height}
+              />
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Sponsors;
+
 /* export const Sponsors: React.FC = () => {
   const images: StaticImageData[] = [
     img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12,
@@ -93,28 +118,3 @@ const images: { src: StaticImageData, width: number, height: number }[] = [
   );
 }; */
 /*otro code sin error de imagen*/
-
-export const Sponsors: React.FC = () => {
-  return (
-    <div className={styles["container-sponsors"]}>
-      <h1 className={styles["text-title"]}> GRACIAS A:</h1>
-      <div className={styles.slider}>
-        <div className={styles["slide-track"]}>
-          {images.map((image, index) => (
-            <div className={styles.slide} key={index}>
-              <Image
-                className={styles.image}
-                src={image.src}
-                alt={`sponsors${index + 1}`}
-                width={image.width}
-                height={image.height}
-              />
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Sponsors;

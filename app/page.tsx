@@ -2,7 +2,7 @@
   "use client";
   import { useEffect, useRef, useState } from "react";
   import { FaArrowCircleLeft, FaArrowCircleRight } from "react-icons/fa";
-
+  import { Sponsors } from "./components/sponsors/Sponsors";
 
 
   interface Ganado {
@@ -229,10 +229,14 @@
           </div>
           <button ref={nextBtnRef} id="next-btn">
             <FaArrowCircleRight size={28} fill="#43A49C" />
+            
           </button>
         </div>
-      </div>
+        <Sponsors/>
+      </div>     
+      
     );
+    
   }
 
 
