@@ -15,5 +15,16 @@
     "src": "/ganadores",
     "dest":"/"
   }
-  ]
+ 
+  ],
+  
+
+    "rewrites":[{
+     
+        "source":"/(.*)",
+    "destination":"/"}
+     ]
+    
+
+
 }
