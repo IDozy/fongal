@@ -14,10 +14,15 @@
   display: flex;
   flex-direction: column;
   width:100%;
-  height: 100vh;  
+  height: 100vh;
   justify-content: center;
   align-items:center;
-  background: linear-gradient(to bottom, #19547b, #ffd89b); /* Gradiente de fondo */
+  background: linear-gradient(
+    45deg,
+    #f5f3f0 40%,
+    #354e48 40%
+  );
+  /* background: linear-gradient(to bottom,#f5f3f0, #354e48); */
 }
 
 /* Container Styles */
@@ -27,6 +32,7 @@
   justify-content: center;
   align-items: center;
   grid-template-columns: auto auto;
+  border-bottom: #354e48;
 }
 
 /* Book Styles */
@@ -52,7 +58,7 @@
 
 .front,
 .back {
-  background-color: white;
+  background-color: #f5f3f0;
   position: absolute;
   width: 100%;
   height: 100%;
@@ -159,7 +165,7 @@ i {
 /* Media Queries */
 @media (max-width: 750px) {
   .container {
-    margin-top: 10%;
+    
     flex-direction: column;
     width: 100%;
     align-items: center;
@@ -174,7 +180,7 @@ i {
     -ms-transform: translateX(-2%) !important;
     -o-transform: translateX(-2%) !important;
     /*overflow:scroll;    Aseguraqueelcontenidoadicionalsescrolle*/
-    height: 90%;    /*Asumiendounaalturadeejemplopara.book*/
+    height: 80%;    /*Asumiendounaalturadeejemplopara.book*/
     width: 100%;
     position: relative;
 }
@@ -217,7 +223,7 @@ i {
 
   .front-content,
 .back-content {  
-  padding: 10%;
+  padding-left: 13%;
   font-size: clamp(10px, 4vw + 1rem, 14px);
   border: none;
 }
@@ -231,6 +237,23 @@ i {
     transform: translateX(0%) !important;
     z-index: 10;
   }
+  #prev-btn {
+    margin: 6%;
+    transform: translateY(50%) !important;
+    z-index: 10;
+    -webkit-transform: translateY(50%) !important;
+    -moz-transform: translateY(50%) !important;
+    -ms-transform: translateY(50%) !important;
+    -o-transform: translateY(50%) !important;
+}
+#next-btn {
+  transform: translateY(-50%) !important;
+  z-index: 10;
+  -webkit-transform: translateY(-50%) !important;
+  -moz-transform: translateY(-50%) !important;
+  -ms-transform: translateY(-50%) !important;
+  -o-transform: translateY(-50%) !important;
+}
   .vacanombre{
     display: none;
   }

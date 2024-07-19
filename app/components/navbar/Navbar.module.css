@@ -14,8 +14,8 @@
   border-bottom: 3px solid rgba(0, 0, 0, 0.2); /* Border inferior leve */
 
 
-  background: rgb(228,228,230);
-  background: linear-gradient(135deg, rgba(228,228,230,1) 0%, rgba(53,92,65,1) 14%);
+  /* background: #354e48; */
+  background: linear-gradient(135deg, #e4e4e6 0%, #354e48 14%);
 }
 
 .hidden {
@@ -47,7 +47,7 @@
 }
 
 .menuItems li a {
-  color: #ffd89b; /* Color letras */
+  color: #f5f3f0; /* Color letras */
   text-decoration: none;
   transition: color 0.2s;
   padding: 0.5rem 0; /* Reduce el padding vertical de los enlaces del menú */
@@ -84,7 +84,7 @@
     display: none;
     flex-direction: column;
     width: 100%;
-    background: rgba(53,92,65,1);
+    background: #354e48;
     position: fixed;
     top: 50px; /* Asegurar que el menú móvil aparezca justo debajo del navbar */
     left: 0;

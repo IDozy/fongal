@@ -13,7 +13,7 @@ const Footer: React.FC<NavbarProps> = ({ currentUser }) => {
     <footer className={styles.footer}>
       <div className={styles.socialIcons}>
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/profile.php?id=100094125785842"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -23,15 +23,15 @@ const Footer: React.FC<NavbarProps> = ({ currentUser }) => {
           <FaTwitter />
         </a>
         <a
-          href="https://instagram.com"
+          href="https://www.instagram.com/jhon_jairus/"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaInstagram />
         </a>
-        <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
+        {/* <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">
           <FaTiktok />
-        </a>
+        </a> */}
         <UserMenu currentUser={currentUser} />
       </div>
       <div className={styles.copyright}>&copy; 2024 Quipu</div>

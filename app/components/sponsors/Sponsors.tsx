@@ -42,7 +42,7 @@ const images: { src: StaticImageData, width: number, height: number }[] = [
   { src: img7, width: 200, height: 200 },
   { src: img8, width: 200, height: 200 },
   { src: img9, width: 200, height: 200 },
-  { src: img10, width: 200, height: 200 },
+  /* { src: img10, width: 200, height: 200 }, */
   { src: img11, width: 200, height: 200 },
   { src: img12, width: 200, height: 200 },
   { src: img13, width: 200, height: 200 },
@@ -92,8 +92,8 @@ const images: { src: StaticImageData, width: number, height: number }[] = [
     </div>
   );
 }; */
-
 /*otro code sin error de imagen*/
+
 export const Sponsors: React.FC = () => {
   return (
     <div className={styles["container-sponsors"]}>

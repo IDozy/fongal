@@ -38,7 +38,7 @@ const Description: React.FC<{ vaca: Ganado; type?: string }> = ({
          <img className="vacafoto-container" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ /* position: 'relative',  */zIndex: 2}} />
         </p>
         <p>
-          <strong>Nombre:</strong>{vaca.name}
+          <strong>Nombre:</strong> {vaca.name}
         </p>
         <p>
           <strong>Nacimiento:</strong> {vaca.nacimiento}
@@ -202,7 +202,7 @@ export default function Home() {
     <div className="box">
       <div className="container">
         <button ref={prevBtnRef} id="prev-btn">
-          <FaArrowCircleLeft size={28} fill="#5C3C35" />
+          <FaArrowCircleLeft size={28} fill="#CFA180" />
         </button>
         <div ref={bookRef} id="book" className="book">
           {papers.map((paper, index) => (
@@ -228,7 +228,7 @@ export default function Home() {
           ))}
         </div>
         <button ref={nextBtnRef} id="next-btn">
-          <FaArrowCircleRight size={28} fill="#5C3C35" />
+          <FaArrowCircleRight size={28} fill="#43A49C" />
         </button>
       </div>
     </div>

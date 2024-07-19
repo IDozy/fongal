@@ -1,10 +1,10 @@
 .footer {
-  background-color: #ccc;
+  background-color: #ffffff;
   color: #000;
   padding: 1rem 0;
   text-align: center;
   width: 100%;
-  border-top: 1px solid #aaa; /* Border at the bottom */
+  
 }
 
 .socialIcons {

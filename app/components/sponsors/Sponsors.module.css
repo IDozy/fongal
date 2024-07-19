@@ -2,8 +2,9 @@
   display: grid;
   place-items: center;
   padding-top: 1rem;
-  background-color: #ffd89b;
   
+  background-color: #f5f3f0;
+
 }
 
 .slider {
@@ -15,6 +16,7 @@
   place-items: center;
   overflow: hidden;
   margin-bottom: 2rem;
+  
 }
 
 .slide-track {
@@ -48,8 +50,9 @@
   width: 200px;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 20px;
   perspective: 100px;
+  
 }
 
 .slide img {
@@ -63,7 +66,7 @@
 
 .slider::before,
 .slider::after {
-  background: linear-gradient(to right, rgba(255, 255, 255, 0.137) 0%, rgba(255, 255, 255, 0) 100%);
+  /* background: linear-gradient(to right, #ffffff23 0%, #ffffff00 100%); */
   content: '';
   height: 100%;
   position: absolute;
@@ -83,9 +86,9 @@
 }
 
 .text-title {
-  font-family: "Courier New",monospace; /* Ejemplo de una fuente gratuita */
-  color: #004d40; /* Color verde oscuro */
+  font-family: "cursive"; /* Ejemplo de una fuente gratuita */
+  color: #354E48; /* Color verde oscuro */
   text-align: center; /* Centrar el texto */
   margin-bottom: 0.5rem; /* Espacio inferior */
-  font-size: 50px;
+  font-size: 35px;
 }
