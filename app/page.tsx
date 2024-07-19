@@ -123,7 +123,7 @@
                 <Description
                   vaca={ganadoData[ganadoData.length - 1]}
                   type="front"
-                />
+                />               
               ),
               back: "Fin",
             },
@@ -232,9 +232,7 @@
             
           </button>
         </div>
-        <Sponsors/>
-      </div>     
-      
+      </div>           
     );
     
   }

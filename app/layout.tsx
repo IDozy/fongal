@@ -35,6 +35,7 @@ export default async function RootLayout({
           <main className="site-content">{children}</main>
           {/* <Sponsors/> */}
           <Footer currentUser={currentUser} />
+          <Sponsors/>
         </ClientOnly>
       </body>
     </html>
