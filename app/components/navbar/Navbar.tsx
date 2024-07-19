@@ -32,6 +32,15 @@ const NavBar = () => {
     setNavActive(false);
    router.push("/ganadores")
   }
+  const navNosotros = () =>{
+    setNavActive(false);
+   router.push("/nosotros")
+  }
+
+  const goHome = () => {
+    setNavActive(false);
+    router.push("/");
+  };
 
   const toggleNav = () => {
     setNavActive(!isNavActive);
@@ -52,7 +61,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/nosotros" onClick={closeNav}>
+            <Link href="/nosotros" onClick={navNosotros}>
               Nosotros
             </Link>
           </li>

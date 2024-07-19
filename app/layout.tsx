@@ -33,7 +33,7 @@ export default async function RootLayout({
           <RegisterModal />
          
           <main className="site-content">{children}</main>
-          {/* <Sponsors/> */}
+          <Sponsors/>
           <Footer currentUser={currentUser} />
         </ClientOnly>
       </body>
