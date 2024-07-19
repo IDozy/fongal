@@ -32,6 +32,15 @@ const NavBar = () => {
     setNavActive(false);
    router.push("/ganadores")
   }
+  const navNosotros = () =>{
+    setNavActive(false);
+   router.push("/nosotros")
+  }
+
+  const goHome = () => {
+    setNavActive(false);
+    router.push("/");
+  };
 
   const toggleNav = () => {
     setNavActive(!isNavActive);
@@ -39,9 +48,8 @@ const NavBar = () => {
 
   return (
     <div className={`${styles.PublicHeader} ${visible ? '' : styles.hidden}`}>
-      <figure className={styles.PublicHeader_logo}>
-      <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024" />
-
+      <figure className={styles.PublicHeader_logo} onClick={goHome} style={{ cursor: "pointer" }}>
+        <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024" />
       </figure>
       <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
         <ul className={styles.menuItems}>
@@ -51,7 +59,7 @@ const NavBar = () => {
             </Link>
           </li>
           <li>
-            <Link href="/nosotros" onClick={closeNav}>
+            <Link href="/nosotros" onClick={navNosotros}>
               Nosotros
             </Link>
           </li>
