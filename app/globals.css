@@ -198,7 +198,7 @@ i {
   -moz-border-radius: 50px;
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
-  max-width: 80%; /* Evita que el contenedor sobrepase su contenedor padre */
+  max-width: 70%; /* Evita que el contenedor sobrepase su contenedor padre */
   max-height: 300px;
   overflow: hidden; /* Asegura que el contenido adicional se oculte */
 }
@@ -219,6 +219,8 @@ i {
   .back {
     display: flex;
     box-shadow: none;
+    width: 100%;
+    height: 100%;
   }
 
   .front-content,
