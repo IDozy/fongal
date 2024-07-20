@@ -57,7 +57,7 @@ const NavBar = () => {
         <ul className={styles.menuItems}>
           <li>
             <Link href="/ganadores" onClick={navGanadores}>
-              Explorar
+              Ganadores
             </Link>
           </li>
           <li>
