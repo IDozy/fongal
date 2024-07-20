@@ -49,7 +49,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
         <div
           onClick={onGanado}
           className=" hidden md:block text-sm font-semibold transition">
-          Crear
+          ‎ 
         </div>
         <div
           onClick={toggleOpen}
@@ -66,7 +66,7 @@ const UserMenu: React.FC<UserMenuProps> = ({ currentUser }) => {
        
         transition"
         >
-          Acceso
+        ‎ 
          
           <div className="hidden md:block">
            
