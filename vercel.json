@@ -5,5 +5,8 @@
       "src": "package.json",
       "use": "@vercel/next"
     }
-  ]
+  ],
+  "env": {
+    "DATABASE_URL": "mongodb+srv://ahuatayc:ahuatayc@cluster0.qj66tnw.mongodb.net/fongal?retryWrites=true&w=majority" 
+  }
 }
