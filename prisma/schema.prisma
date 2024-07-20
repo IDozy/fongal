@@ -68,3 +68,4 @@ model Ganado {
   imageSrc    String?
   puntaje     String?
 }
+
