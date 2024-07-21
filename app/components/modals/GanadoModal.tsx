@@ -103,7 +103,7 @@ const GanadoModal: React.FC<CreateStudentModalProps> = ({
               />
               <Input
                 id="propietario"
-                label="Propietario"
+                label="Criador"
                 disabled={isLoading}
                 register={register}
                 errors={errors}
@@ -158,7 +158,7 @@ const GanadoModal: React.FC<CreateStudentModalProps> = ({
             <div className="flex gap-4">
               <Input
                 id="descripcion"
-                label="Descripción"
+                label="Expositor"
                 disabled={isLoading}
                 register={register}
                 errors={errors}
@@ -176,7 +176,7 @@ const GanadoModal: React.FC<CreateStudentModalProps> = ({
             <div className="flex gap-4">
             <Input
               id="sexo"
-              label="Sexo"
+              label="N° Registro"
               disabled={isLoading}
               register={register}
               errors={errors}

@@ -32,7 +32,6 @@ const EditGanadoModal: React.FC<EditGanadoModalProps> = ({
 
   const onSubmit: SubmitHandler<FieldValues> = async (data) => {
     try {
-      
       const remateBoolean = data.remate === "si";
 
       const response = await axios.put(`/api/ganado`, {
@@ -64,7 +63,7 @@ const EditGanadoModal: React.FC<EditGanadoModalProps> = ({
         />
         <Input
           id="propietario"
-          label="Propietario"
+          label="Criador"
           register={register}
           errors={errors}
           required
@@ -132,7 +131,7 @@ const EditGanadoModal: React.FC<EditGanadoModalProps> = ({
       <div className="flex flex-row gap-4">
         <Input
           id="sexo"
-          label="Sexo"
+          label="N° Registro"
           register={register}
           errors={errors}
           required

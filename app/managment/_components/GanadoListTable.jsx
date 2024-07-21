@@ -1,5 +1,3 @@
-
-
 "use client";
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
@@ -52,16 +50,16 @@ const GanadoListTable = ({ ganadoList, refreshData }) => {
   };
 
   const [columns, setColumns] = useState([
-   
     { field: "name", headerName: "Nombre", width: 150 },
-    { field: "propietario", headerName: "Propietario", width: 150 },
+    { field: "propietario", headerName: "Criador", width: 150 },
     { field: "nacimiento", headerName: "nacimiento", width: 100 },
+    { field: "descripcion", headerName: "Expositor", width: 150 },
     { field: "categoria", headerName: "categoria", width: 200 },
     { field: "diasNacida", headerName: "diasNacida", width: 100 },
     { field: "establo", headerName: "establo", width: 100 },
     { field: "remate", headerName: "remate", width: 70 },
     { field: "raza", headerName: "raza", width: 100 },
-    { field: "sexo", headerName: "sexo", width: 100 },
+    { field: "sexo", headerName: "N° Registro", width: 100 },
     { field: "puntaje", headerName: "puntaje", width: 100 },
     {
       field: "action",
@@ -147,4 +145,3 @@ const GanadoListTable = ({ ganadoList, refreshData }) => {
 };
 
 export default GanadoListTable;
-
