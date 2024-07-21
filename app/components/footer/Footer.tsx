@@ -13,15 +13,15 @@ const Footer: React.FC<NavbarProps> = ({ currentUser }) => {
     <footer className={styles.footer}>
       <div className={styles.socialIcons}>
         <a
-          href="https://www.facebook.com/profile.php?id=100094125785842"
+          href="https://www.facebook.com/profile.php?id=61558151199817"
           target="_blank"
           rel="noopener noreferrer"
         >
           <FaFacebook />
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+        {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
           <FaTwitter />
-        </a>
+        </a> */}
         <a
           href="https://www.instagram.com/fongalcajamarca_"
           target="_blank"
