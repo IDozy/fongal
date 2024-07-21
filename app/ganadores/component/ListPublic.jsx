@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import { DataGrid } from "@mui/x-data-grid";
 import { useRouter } from "next/navigation";
@@ -10,16 +11,18 @@ const ListPublic = ({ ganadoList, refreshData }) => {
   const router = useRouter();
 
   const columns = [
-    {field:"puesto", headerName:"Puesto"},
+    { field: "puesto", headerName: "Puesto" },
+    { field: "sexo", headerName: "N° Registro", width: 100 },
     { field: "name", headerName: "Nombre", width: 150 },
-    { field: "propietario", headerName: "Propietario", width: 150 },
+    { field: "propietario", headerName: "Criador", width: 150 },
+    { field: "descripcion", headerName: "Expositor", with: 150 },
     { field: "nacimiento", headerName: "Nacimiento", width: 100 },
     { field: "categoria", headerName: "Categoria", width: 200 },
     { field: "diasNacida", headerName: "Dias Nacida", width: 100 },
     { field: "establo", headerName: "Establo", width: 100 },
     { field: "remate", headerName: "Remate", width: 70 },
     { field: "raza", headerName: "Raza", width: 100 },
-    { field: "sexo", headerName: "Sexo", width: 100 },
+
     { field: "puntaje", headerName: "Puntaje", width: 100 },
   ];
 
@@ -49,29 +52,33 @@ const ListPublic = ({ ganadoList, refreshData }) => {
             onChange={(event) => handleSearch(event.target.value)}
           />
         </div>
-        <DataGrid
-          style={{ background: "#fff" }}
-          rows={rowData}
-          columns={columns}
-          
-          pagination={false} // Desactivar paginación
-          disableColumnFilter // Desactivar filtro de columna
-          disableColumnMenu // Desactivar menú de columna
-          disableColumnSelector // Desactivar selector de columna
-          disableDensitySelector // Desactivar selector de densidad
-          hideFooterPagination // Ocultar paginación en el pie
-          disableSelectionOnClick // Desactivar selección al hacer clic
-          disableColumnReorder // Desactivar reordenamiento de columnas
-
-          sx={{
-            "& .MuiDataGrid-cell": {
-              borderRight: "1px solid rgba(224, 224, 224, 1)",
-            },
-            "& .MuiDataGrid-columnHeaders": {
-              borderBottom: "1px solid rgba(224, 224, 224, 1)",
-            },
-          }}
-        />
+        {rowData.length > 0 ? (
+          <DataGrid
+            style={{ background: "#fff" }}
+            rows={rowData}
+            columns={columns}
+            pagination={false} // Desactivar paginación
+            disableColumnFilter // Desactivar filtro de columna
+            disableColumnMenu // Desactivar menú de columna
+            disableColumnSelector // Desactivar selector de columna
+            disableDensitySelector // Desactivar selector de densidad
+            hideFooterPagination // Ocultar paginación en el pie
+            disableSelectionOnClick // Desactivar selección al hacer clic
+            disableColumnReorder // Desactivar reordenamiento de columnas
+            sx={{
+              "& .MuiDataGrid-cell": {
+                borderRight: "1px solid rgba(224, 224, 224, 1)",
+              },
+              "& .MuiDataGrid-columnHeaders": {
+                borderBottom: "1px solid rgba(224, 224, 224, 1)",
+              },
+            }}
+          />
+        ) : (
+          <div className="text-center text-gray-500">
+            Aún no existen registros
+          </div>
+        )}
       </div>
     </div>
   );

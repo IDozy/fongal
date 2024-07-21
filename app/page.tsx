@@ -56,16 +56,16 @@
             <strong>Remate:</strong> {vaca.remate ? "Sí" : "No"}
           </p>
           <p>
-            <strong>Propietario:</strong> {vaca.propietario}
+            <strong>Criador:</strong> {vaca.propietario}
           </p>
           <p>
-            <strong>Descripción:</strong> {vaca.descripcion}
+            <strong>Expositor:</strong> {vaca.descripcion}
           </p>
           <p>
             <strong>Raza:</strong> {vaca.raza}
           </p>
           <p>
-            <strong>Sexo:</strong> {vaca.sexo}
+            <strong>N° Registro:</strong> {vaca.sexo}
           </p>
         </>
       ) : (
