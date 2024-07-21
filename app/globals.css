@@ -98,6 +98,7 @@
 
 .front-content p,
 .back-content p {
+  
   margin: 5% 0; /* Espacio vertical de 5% entre párrafos */
 }
 
@@ -110,7 +111,7 @@
   text-shadow: 2px -2px 0px rgba(255, 0, 0, 0.3);
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(24px, 4vw + 1rem, 48px);
+  font-size: clamp(24px, 4vw + 1rem, 32px);
   text-transform: uppercase;
   line-height: 85px;
   color: #35231f;
