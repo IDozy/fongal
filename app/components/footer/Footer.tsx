@@ -23,7 +23,7 @@ const Footer: React.FC<NavbarProps> = ({ currentUser }) => {
           <FaTwitter />
         </a>
         <a
-          href="https://www.instagram.com/jhon_jairus/"
+          href="https://www.instagram.com/fongalcajamarca_"
           target="_blank"
           rel="noopener noreferrer"
         >

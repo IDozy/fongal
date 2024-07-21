@@ -49,7 +49,7 @@ const NavBar = () => {
   return (
     <div className={`${styles.PublicHeader} ${visible ? '' : styles.hidden}`}>
       <figure className={styles.PublicHeader_logo}>
-      <a href="http://localhost:3000"> {/* logo inicio */}
+      <a href="http://feria2024.vercel.app"> {/* logo inicio */}
       <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024"/>
       </a>
       </figure>
@@ -57,7 +57,7 @@ const NavBar = () => {
         <ul className={styles.menuItems}>
           <li>
             <Link href="/ganadores" onClick={navGanadores}>
-              Explorar
+              Ganadores
             </Link>
           </li>
           <li>
