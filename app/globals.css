@@ -111,7 +111,7 @@
   text-shadow: 2px -2px 0px rgba(255, 0, 0, 0.3);
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(24px, 4vw + 1rem, 32px);
+  font-size: clamp(16px, 4vw + 1rem, 24px);
   text-transform: uppercase;
   line-height: 85px;
   color: #35231f;
