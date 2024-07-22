@@ -103,18 +103,19 @@
 
 /* Name Styles */
 .vacanombre {
+  padding-top: 50px;
   position: fixed;
   width: 329px;
-  height: 101px;
+  height: auto;
   text-align: center;
   text-shadow: 1px 2px 1px #dbbf9e;
   font-style: normal;
   font-weight: 400;
-  font-size: clamp(12px, 4vw + 1rem, 48px);
+  font-size:1rem;
   text-transform: uppercase;
-  line-height: 85px;
+ 
   color: #35231f;
-  overflow: scroll;
+  overflow: none;
 }
 
 .vacafoto-container{
@@ -129,6 +130,11 @@
 .flipped .front,
 .flipped .back {
   transform: rotateY(-180deg);
+  
+}
+
+.front div{
+  padding: 25px;
 }
 
 /* Button Styles */
