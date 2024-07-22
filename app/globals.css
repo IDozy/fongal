@@ -34,21 +34,7 @@
   grid-template-columns: auto auto;
   border-bottom: #354e48;
 }
-@media (min-width: 750px) {
-#prev-btn {
-  /*flex-grow: 0   !important;
-  */z-index: 15;
-  transform: translateX(50%) !important;
-  -webkit-transform: translateX(50%) !important;
-  -moz-transform: translateX(50%) !important;
-  -ms-transform: translateX(50%) !important;
-  -o-transform: translateX(50%) !important;
-  transition: transform 0.5s;
-  top: 0;
-  left: 0;
-  transform-origin: left;
-}
-}
+
 /* Book Styles */
 .book {
   position: relative;
@@ -117,19 +103,18 @@
 
 /* Name Styles */
 .vacanombre {
-  padding-top: 50px;
   position: fixed;
   width: 329px;
-  height: auto;
+  height: 101px;
   text-align: center;
   text-shadow: 1px 2px 1px #dbbf9e;
-  font-style: bold;
+  font-style: normal;
   font-weight: 400;
-  font-size: clamp(12px, 4vw + 1rem, 24px);
+  font-size: clamp(12px, 4vw + 1rem, 48px);
   text-transform: uppercase;
- 
+  line-height: 85px;
   color: #35231f;
-  overflow:hidden;
+  overflow: hidden;
 }
 
 .vacafoto-container{
@@ -144,11 +129,6 @@
 .flipped .front,
 .flipped .back {
   transform: rotateY(-180deg);
-  
-}
-
-.front div{
-  padding: 25px;
 }
 
 /* Button Styles */
@@ -160,10 +140,6 @@ button {
   transition: transform 0.5s;
   flex-grow: 100;
   flex-shrink: 250;
-  -webkit-transition: transform 0.5s;
-  -moz-transition: transform 0.5s;
-  -ms-transition: transform 0.5s;
-  -o-transition: transform 0.5s;
 }
 
 button:focus {
