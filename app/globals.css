@@ -250,12 +250,12 @@ i {
     -o-transform: translateY(90%) !important;
 }
 #next-btn {
-  transform: translateY(-70%) !important;
+  transform: translateY(15%) !important;
   z-index: 10;
-  -webkit-transform: translateY(-70%) !important;
-  -moz-transform: translateY(-70%) !important;
-  -ms-transform: translateY(-70%) !important;
-  -o-transform: translateY(-70%) !important;
+  -webkit-transform: translateY(15%) !important;
+  -moz-transform: translateY(15%) !important;
+  -ms-transform: translateY(15%) !important;
+  -o-transform: translateY(15%) !important;
 }
   .vacanombre{
     display: none;
