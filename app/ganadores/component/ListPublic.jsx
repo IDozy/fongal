@@ -108,16 +108,16 @@ const ListPublic = ({ ganadoList, refreshData }) => {
   const router = useRouter();
 
   const [columns, setColumns] = useState([
-    { field: "sexo", headerName: "N° Registro", width: 100 },
-    { field: "puntaje", headerName: "Puntaje", width: 100 },
-    { field: "name", headerName: "Nombre", width: 150 },
-    { field: "raza", headerName: "Raza", width: 100 },
+    { field: "categoria", headerName: "Categoria", width: 250 },
+    { field: "establo", headerName: "Establo", width: 250 },
+    { field: "name", headerName: "Nombre", width: 300 },
+    { field: "puntaje", headerName: "Puntaje", width: 80 },
+    { field: "raza", headerName: "Raza", width: 150 },
     { field: "propietario", headerName: "Criador", width: 150 },
+    { field: "sexo", headerName: "N° Registro", width: 100 },
     { field: "descripcion", headerName: "Expositor", width: 150 },
     { field: "nacimiento", headerName: "Nacimiento", width: 100 },
     { field: "diasNacida", headerName: "Dias De Nacida", width: 150 },
-    { field: "categoria", headerName: "Categoria", width: 200 },
-    { field: "establo", headerName: "Establo", width: 100 },
     { field: "remate", headerName: "Remate", width: 70 },
    
   ]);
