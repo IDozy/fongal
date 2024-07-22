@@ -74,7 +74,6 @@
   z-index: 1;
   backface-visibility: hidden;
   border-left: 3px solid #dbbf9e;
-  box-shadow: 20px 10px 20px #00000011;
 }
 
 .back {
