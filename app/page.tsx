@@ -201,7 +201,7 @@
     return (
       <div className="box">
         <div className="container">
-          <button ref={prevBtnRef} id="prev-btn">
+          <button ref={prevBtnRef} id="prev-btn" className="prevbuton">
             <FaArrowCircleLeft size={28} fill="#CFA180" />
           </button>
           <div ref={bookRef} id="book" className="book">
