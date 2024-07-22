@@ -115,7 +115,7 @@
   text-transform: uppercase;
   line-height: 85px;
   color: #35231f;
-  overflow: hidden;
+  overflow: scroll;
 }
 
 .vacafoto-container{
