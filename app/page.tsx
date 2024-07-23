@@ -31,7 +31,7 @@
     type,
   }) => (
     <div>
-      {type === "front" ? (
+    
         <>
         
           <p>
@@ -68,15 +68,7 @@
             <strong>N° Registro:</strong> {vaca.sexo}
           </p>
         </>
-      ) : (
-        <div className="imgvaca">
-          <img className="fotovaca" width={"350px"} src={vaca.imageSrc} alt={vaca.name} style={{ /* position: 'relative',  */zIndex: 2 }} />
-          
-          <div className="vacanombre" style={{ position: 'relative', zIndex: 2  }}>
-            <strong></strong> {vaca.name}
-          </div>
-        </div>
-      )}
+      
     </div>
   );
 
@@ -220,10 +212,7 @@
 
                   </div>
                 </div>
-                <div className="back">
-                  <div className="back-content">{paper.back}
-                  </div>
-                </div>
+                
               </div>
             ))}
           </div>

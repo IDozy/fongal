@@ -30,7 +30,7 @@ const NavBar = () => {
 
   const navGanadores = () =>{
     setNavActive(false);
-   router.push("/ganadores")
+   router.push("/participantes")
   }
   const navNosotros = () =>{
     setNavActive(false);
@@ -56,8 +56,8 @@ const NavBar = () => {
       <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
         <ul className={styles.menuItems}>
           <li>
-            <Link href="/ganadores" onClick={navGanadores}>
-              Ganadores
+            <Link href="/participantes" onClick={navGanadores}>
+              Participantes
             </Link>
           </li>
           <li>
