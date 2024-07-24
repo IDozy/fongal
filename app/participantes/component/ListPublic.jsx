@@ -111,7 +111,7 @@ const ListPublic = ({ ganadoList, refreshData }) => {
     { field: "categoria", headerName: "Categoria", width: 250 },
     { field: "establo", headerName: "Establo", width: 250 },
     { field: "name", headerName: "Nombre", width: 300 },
-    { field: "puntaje", headerName: "Puntaje", width: 80 },
+    { field: "puntaje", headerName: "Mérito", width: 80 },
     { field: "raza", headerName: "Raza", width: 150 },
     { field: "propietario", headerName: "Criador", width: 150 },
     { field: "sexo", headerName: "N° Registro", width: 100 },
