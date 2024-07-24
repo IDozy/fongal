@@ -10,6 +10,7 @@ import LoginModal from "./components/modals/LoginModal";
 import RegisterModal from "./components/modals/RegisterModal";
 import GanadoModal from "./components/modals/GanadoModal";
 import { Sponsors } from "./components/sponsors/Sponsors";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Nunito({ subsets: ["latin"] });
 
