@@ -9,7 +9,7 @@ class MyDocument extends Document {
           {/* Aquí colocas tus scripts de Google Tag Manager */}
           <script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-7GTKSVQP0S"
+            src="https://www.googletagmanager.com/gtag/js?id=G-3XRLK6GL46"
           ></script>
           <script
             dangerouslySetInnerHTML={{
@@ -18,7 +18,7 @@ class MyDocument extends Document {
                 function gtag(){dataLayer.push(arguments);}
                 gtag('js', new Date());
 
-                gtag('config', 'G-7GTKSVQP0S');
+                gtag('config', 'G-3XRLK6GL46');
               `,
             }}
           ></script>
