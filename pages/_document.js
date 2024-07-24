@@ -6,10 +6,10 @@ class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          {/* Aquí colocas tus scripts de Google Tag Manager */}
+          {/* Google Tag Manager */}
           <script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-3XRLK6GL46"
+            src={`https://www.googletagmanager.com/gtag/js?id=G-3XRLK6GL46`}
           ></script>
           <script
             dangerouslySetInnerHTML={{
@@ -22,7 +22,7 @@ class MyDocument extends Document {
               `,
             }}
           ></script>
-          {/* Fin de los scripts de Google Tag Manager */}
+          {/* End Google Tag Manager */}
         </Head>
         <body>
           <Main />
