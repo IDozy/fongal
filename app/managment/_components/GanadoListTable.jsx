@@ -60,7 +60,7 @@ const GanadoListTable = ({ ganadoList, refreshData }) => {
     { field: "remate", headerName: "remate", width: 70 },
     { field: "raza", headerName: "raza", width: 100 },
     { field: "sexo", headerName: "N° Registro", width: 100 },
-    { field: "Mérito", headerName: "Mérito", width: 100 },
+    { field: "puntaje", headerName: "Mérito", width: 100 },
     {
       field: "action",
       headerName: "Acción",
