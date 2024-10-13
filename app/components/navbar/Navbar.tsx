@@ -49,7 +49,7 @@ const NavBar = () => {
   return (
     <div className={`${styles.PublicHeader} ${visible ? '' : styles.hidden}`}>
       <figure className={styles.PublicHeader_logo}>
-      <a href="http://feria2024.vercel.app"> {/* logo inicio */}
+      <a href="/"> {/* logo inicio */}
       <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024"/>
       </a>
       </figure>
