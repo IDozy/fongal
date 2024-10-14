@@ -15,7 +15,7 @@ const Student = () => {
   const GetAllStudents = () => {
     const fetchStudents = async () => {
       try {
-        const response = await fetch("/api/ganado   ", {
+        const response = await fetch("/api/ganado/participantes", {
           method: "GET",
         });
         if (!response.ok) {
