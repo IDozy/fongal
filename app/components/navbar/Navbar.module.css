@@ -3,13 +3,13 @@
   position: fixed;
   top: 0;
   width: 100%;
-  height: 50px; /* Ajusta esta altura según tus necesidades */
+  height: 5rem; /* Ajusta esta altura según tus necesidades */
   /* background-color: #E4E4E6;  */
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 1rem; /* Ajusta el padding horizontal */
+  padding: 0 5rem; /* Ajusta el padding horizontal */
   box-sizing: border-box;
   border-bottom: 3px solid rgba(0, 0, 0, 0.2); /* Border inferior leve */
 
@@ -128,8 +128,8 @@
 
 @media (min-width: 901px) {
   .PublicHeader {
-    height: 50px; /* Ajusta esta altura según tus necesidades */
-    padding: 0 1rem; /* Ajusta el padding horizontal */
+    height: 5rem; /* Ajusta esta altura según tus necesidades */
+    padding: 0 5rem; /* Ajusta el padding horizontal */
   }
 }
 .logoImage{

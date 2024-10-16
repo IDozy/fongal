@@ -91,6 +91,7 @@ export default function Home() {
 
 "use client";
 import { useEffect, useState } from "react";
+import Sponsors from "./components/sponsors/Sponsors";
 
 interface Ganado {
   id: string;
@@ -176,6 +177,7 @@ export default function Home() {
           Siguiente
         </button>
       </div>
+      <Sponsors/>
     </>
   );
 }
