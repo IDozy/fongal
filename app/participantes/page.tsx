@@ -61,7 +61,7 @@ import Sidebar from "../components/sidebar/Sidebar";
 
 interface Ganado {
   id: number;
-  nombre: string;
+  name: string;
   establo: string;
   categoria: string;
   [key: string]: any; // Para otras propiedades opcionales
@@ -99,7 +99,7 @@ const Student = () => {
   const handleSearchByName = (event: React.ChangeEvent<HTMLInputElement>) => {
     const searchValue = event.target.value.toLowerCase();
     const filtered = ganadoList.filter((ganado) =>
-      ganado.nombre.toLowerCase().includes(searchValue)
+      ganado.name.toLowerCase().includes(searchValue)
     );
     setFilteredData(filtered);
   };
