@@ -121,7 +121,7 @@ const Student = () => {
       />
       <div className="p-10 mt-12 pb-20 bg-[#f3fdff] w-[85%]">
         <h2 className="font-bold text-2xl flex justify-between items-center">
-          Ganadores
+          Participantes
         </h2>
         <ListPublic ganadoList={filteredData} refreshData={GetAllGanado} />
       </div>
