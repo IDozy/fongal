@@ -1,0 +1,80 @@
+/* Sidebar general styling */
+.bg-gray-800 {
+    background-color: #2d3748;
+  }
+  
+  .text-white {
+    color: #fff;
+  }
+  
+  .w-64 {
+    width: 16rem;
+  }
+  
+  .h-screen {
+    height: 100vh;
+  }
+  
+  .p-4 {
+    padding: 1rem;
+  }
+  
+  .text-xl {
+    font-size: 1.25rem;
+  }
+  
+  .font-bold {
+    font-weight: 700;
+  }
+  
+  .mb-4 {
+    margin-bottom: 1rem;
+  }
+  
+  .hover\:text-gray-400:hover {
+    color: #a0aec0;
+  }
+  
+  .mb-2 {
+    margin-bottom: 0.5rem;
+  }
+  
+  .ml-4 {
+    margin-left: 1rem;
+  }
+  
+  .mt-2 {
+    margin-top: 0.5rem;
+  }
+  
+  .space-y-2 > * + * {
+    margin-top: 0.5rem;
+  }
+  
+  /* Solo aplicamos la transición a las subcategorías */
+  ul {
+    list-style: none;
+  }
+  
+  ul.transition-all {
+    transition: max-height 0.3s ease-in-out;
+  }
+  
+  ul.max-h-0 {
+    max-height: 0;
+  }
+  
+  ul.max-h-40 {
+    max-height: 10rem; /* Ajusta según el contenido máximo que puede expandirse */
+  }
+  
+  .overflow-hidden {
+    overflow: hidden;
+  }
+  /* Estilos para los checkboxes */
+input[type="checkbox"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.5rem;
+  }
+  
