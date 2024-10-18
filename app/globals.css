@@ -160,14 +160,14 @@ body {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 4px;
-  background-color: #007bff;
+  background-color: #21a87f;
   color: white;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .pagination button:hover {
-  background-color: #0056b3;
+  background-color: #0b4736;
 }
 
 .pagination button:disabled {
