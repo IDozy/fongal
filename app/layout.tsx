@@ -27,14 +27,28 @@ export default async function RootLayout({
   const currentUser = await getCurrentUser();
   return (
     <html lang="en">
+      
       <body className={`${inter.className} site`}>
+        <br/><br/><br/><br/>
+          <section className="bienvenida text-center mb-12">
+              <h2 className="text-4xl font-bold text-green-900 mb-4">Bienvenido al Concurso Ganadero</h2>
+              <p className="text-xl text-green-800">Descubre y celebra la belleza de nuestros concursantes!</p>
+          </section>
+            
         <ClientOnly>
+          
           <NavBar />
+          
           <LoginModal />
-          <RegisterModal />
-         
-          <main className="site-content">{children}</main>
+          
+          <RegisterModal />         
+          
+          <main className="site-content">{children}           
+
+          </main>
+          
           {/* <Sponsors/> */}
+          
           <Footer currentUser={currentUser} />
           {/*<Sponsors/>*/}
         </ClientOnly>

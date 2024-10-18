@@ -52,6 +52,7 @@ const NavBar = () => {
       <a href="/"> {/* logo inicio */}
       <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024"/>
       </a>
+      <h1 className="text-3xl font-bold text-white">Concurso Ganadero</h1>
       </figure>
       <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
         <ul className={styles.menuItems}>

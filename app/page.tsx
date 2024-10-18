@@ -108,6 +108,7 @@ interface Ganado {
   imageSrc: string;
 }
 
+
 const PlaceholderSVG = () => (
   <svg fill="#fffff" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" width="150px" height="150px" viewBox="-55.6 -55.6 667.21 667.21">
 
@@ -124,12 +125,15 @@ fill="#e6f4e7"/>
 
 </svg>
 
+
   
 );
+
 
 const Description: React.FC<{ vaca: Ganado }> = ({ vaca }) => (
  
   <div className="card">
+    
   <div className="imgBx">
     {/* <img src={vaca.imageSrc} alt={vaca.name} height="200px"/>
    vaca con solo imagen por defecto*/}
@@ -143,6 +147,7 @@ const Description: React.FC<{ vaca: Ganado }> = ({ vaca }) => (
       )} 
   
   </div>
+  
   <div className="contentBx">
     <h3>
       {vaca.name} <span>({vaca.raza})</span>
