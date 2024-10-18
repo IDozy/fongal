@@ -1,6 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 /* Reset CSS */
 * {
@@ -94,8 +95,13 @@ body {
 
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f4;
+  /* font-family: Arial, sans-serif;
+  background-color: #f4f4f4; */
+
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  
 }
 
 .grid-container {
@@ -111,9 +117,9 @@ body {
 .card {
   background-color: white;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
   overflow: hidden;
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease; 
   
 }
 
@@ -124,11 +130,12 @@ body {
 .card-image {
   width: 100%;
   height: 200px;
-  object-fit: cover;
+  object-fit: cover;  
 }
 
 .card-content {
   padding: 1rem;
+  
 }
 
 .card-content h3 {
@@ -180,21 +187,27 @@ body {
   margin: 0;
   padding: 0;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-}
 
+
+}
+.imgBx{
+  mask-image: linear-gradient(black 85%, transparent);
+}
 
 
 .card {
   position: relative;
   width: 320px;
   height: 420px;
-  background: #122936;
+  background: #ebf4eb;
+  /* #bbe0ee; */
   border-radius: 20px;
   -webkit-border-radius: 20px;
   -moz-border-radius: 20px;
   -ms-border-radius: 20px;
   -o-border-radius: 20px;
   overflow: hidden;
+  
 }
 
 .card::before {
@@ -203,7 +216,7 @@ body {
   top: -50%;
   width: 100%;
   height: 100%;
-  background: #021b51;
+  background: #21a87f;
   transform: skewY(345deg);
   -webkit-transform: skewY(345deg);
   -moz-transform: skewY(345deg);
@@ -228,8 +241,8 @@ body {
 .card::after {
   content: "Fongal";
   position: absolute;
-  bottom: 0;
-  left: 0;
+  top: 0;
+  right: 0;
   font-weight: 600;
   font-size: 5rem;
   color: rgba(0, 0, 0, 0.1);
@@ -266,17 +279,30 @@ body {
 }
 .card .contentBx h3 {
   font-size: 18px;
-  color: #fff;
+  color: #062821;
   font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 1px;
+  
 }
 .card .contentBx h3 span {
-  color: #bb9340;
+  color: #ffffff;
+  background: linear-gradient(90deg, rgba(20,135,102,1) 0%, rgba(16,108,80,1) 35%);
+  
+  border-radius: 6px;
+  -webkit-transform:bold;
+  -moz-transform:bold;
+  -ms-transform:bold;
+  -o-transform:bold;
+  -webkit-border-radius: 6px;
+  -moz-border-radius: 6px;
+  -ms-border-radius: 6px;
+  -o-border-radius: 6px;
 }
 .card .contentBx .price {
+  
   font-size: 24px;
-  color: #fff;
+  color: #043327;
   font-weight: 500;
   letter-spacing: 1px;
 }
@@ -285,7 +311,7 @@ body {
   top: 200px;
   opacity: 0;
 
-  color: #fff;
+  color: #043327;
  
   text-decoration: none;
  
