@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import styles from "./Footer.module.css";
-import { FaFacebook, FaTwitter, FaInstagram, FaTiktok } from "react-icons/fa";
+import { FaFacebook, FaTwitter, FaInstagram, FaTiktok, FaWhatsappSquare } from "react-icons/fa";
 import UserMenu from "./UserMenu";
 import { SafeUser } from "@/app/types";
 interface NavbarProps {
@@ -34,7 +34,10 @@ const Footer: React.FC<NavbarProps> = ({ currentUser }) => {
         </a> */}
         <UserMenu currentUser={currentUser} />
       </div>
-      <div className={styles.copyright}>&copy; 2024 Quipu</div>
+      <div className={styles.copyright}>&copy; 2024 Realizado por Quipu +51 913 896 556
+        
+      </div>
+      
     </footer>
   );
 };
