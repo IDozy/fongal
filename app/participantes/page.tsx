@@ -128,12 +128,9 @@ const Student = () => {
   };
 
   return (
-    <div className="flex">
-      {/* <Sidebar
-        onSearchByStable={handleSearchByStable}
-        onSearchByName={handleSearchByName}
-      /> */}
-      <div className="p-10 mt-12 pb-20 bg-[#f3fdff] w-[85%]">
+    <div >
+     
+      <div className="p-10 mt-12 pb-20 ">
         <h2 className="font-bold text-2xl flex justify-between items-center">
           Participantes
         </h2>
