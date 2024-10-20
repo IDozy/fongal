@@ -84,9 +84,9 @@
     display: none;
     flex-direction: column;
     width: 100%;
-    background: #354e48;
-    position: fixed;
-    top: 50px; /* Asegurar que el menú móvil aparezca justo debajo del navbar */
+    background: linear-gradient(90deg, rgba(20,135,102,1) 0%, rgba(16,108,80,1) 35%);
+    position: absolute;
+    top: 80px; /* Asegurar que el menú móvil aparezca justo debajo del navbar */
     left: 0;
     z-index: 999;
     transition: height 0.3s ease-in-out;
