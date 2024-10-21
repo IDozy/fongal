@@ -1,19 +1,29 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 interface CategoryFilterProps {
   onCategoryChange: (selectedCategories: number[]) => void; // Define la prop
 }
 
-const categories = [
-  { id: 1, name: 'Raza A' },
-  { id: 2, name: 'Raza B' },
-  { id: 3, name: 'Raza C' },
-  { id: 4, name: 'Otro' }
-];
-
 export default function CategoryFilter({ onCategoryChange }: CategoryFilterProps) {
   const [selectedCategories, setSelectedCategories] = useState<number[]>([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [categories, setCategories] = useState<{ id: number; name: string }[]>([]); // Estado para las categorías
+
+  // Función para obtener las categorías desde la API
+  const fetchCategories = async () => {
+    try {
+      const response = await fetch('/api/ganado/categoria'); // Ajusta la ruta según tu API
+      const data = await response.json();
+      // Supongamos que la API devuelve un objeto con una propiedad `categorias`
+      setCategories(data.categorias.map((cat: string, index: number) => ({ id: index + 1, name: cat }))); // Asignar ID basado en el índice
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCategories(); // Llamar a la función al cargar el componente
+  }, []);
 
   const handleCategoryChange = (categoryId: number) => {
     let updatedCategories = [];
