@@ -91,30 +91,30 @@ export const Sponsors: React.FC = () => {
 
 export default Sponsors;
 
-/* export const Sponsors: React.FC = () => {
-  const images: StaticImageData[] = [
-    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12,
-    img13, img14, img15, img16, img17, img18, img19, img20, img21, img22,
-    img23, img24, img25, img26, img27, img28, img29, img30
+/* import React from 'react';
+
+const Sponsors: React.FC = () => {
+  const sponsors = [
+    { name: 'Patrocinar1', logo: 'https://source.unsplash.com/random/200x100?logo,farm' },
+    { name: 'Patrocinar2', logo: 'https://source.unsplash.com/random/200x100?logo,pasture' },
+    { name: 'Patrocinar3', logo: 'https://source.unsplash.com/random/200x100?logo,veterinary' },
+    { name: 'Patrocinar4', logo: 'https://source.unsplash.com/random/200x100?logo,agriculture' },
   ];
 
   return (
-    <div className={styles["container-sponsors"]}>
-      <h1 className={styles["text-title"]}> GRACIAS A:</h1>
-      <div className={styles.slider}>
-        <div className={styles["slide-track"]}>
-          {images.map((image, index) => (
-            <div className={styles.slide} key={index}>
-              <Image
-                className={styles.image}
-                src={image.src}
-                alt={`sponsors${index + 1}`}
-              />
+    <section className="bg-gray-100 py-12">
+      <div className="container mx-auto px-4">
+        <h2 className="text-2xl font-bold text-center mb-8">Our Sponsors</h2>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {sponsors.map((sponsor) => (
+            <div key={sponsor.name} className="bg-white p-4 rounded-lg shadow-md flex items-center justify-center">
+              <img src={sponsor.logo} alt={sponsor.name} className="max-w-full h-auto" />
             </div>
           ))}
         </div>
       </div>
-    </div>
+    </section>
   );
-}; */
-/*otro code sin error de imagen*/
+};
+
+export default Sponsors; */

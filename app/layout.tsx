@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { useRouter } from "next/router";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navbar/Navbar";

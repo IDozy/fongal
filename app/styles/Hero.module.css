@@ -1,0 +1,36 @@
+.backgroundLayer {
+    @apply absolute inset-0 bg-gradient-to-br from-yellow-200 to-green-600;
+  }
+  
+  .backgroundImage {
+    @apply w-full h-full object-cover opacity-50;
+  }
+  
+  .cowLayer {
+    @apply absolute inset-0 flex items-center justify-center;
+  }
+  
+  .cowImage {
+    @apply max-w-full max-h-full object-contain;
+  }
+  
+  .contentLayer {
+    @apply relative z-10 h-full flex flex-col items-center justify-center text-white px-4;
+  }
+  
+  .contentWrapper {
+    @apply text-center;
+  }
+  
+  .title {
+    @apply text-6xl md:text-8xl font-bold mb-6;
+  }
+  
+  .subtitle {
+    @apply text-xl md:text-3xl mb-8;
+  }
+  
+  .ctaButton {
+    @apply bg-white text-green-600 font-bold py-3 px-8 rounded-full text-lg 
+           hover:bg-green-100 transition duration-300;
+  }

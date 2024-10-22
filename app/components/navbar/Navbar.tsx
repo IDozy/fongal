@@ -1,14 +1,15 @@
 "use client"; // Esto no es necesario en Next.js. Puedes eliminar esta línea.
 import React, { useState, useEffect } from "react";
 import Link from "next/link"; // Importa Link de next/link
-import styles from "@/app/components/navbar/Navbar.module.css"
+import styles from "@/app/components/navbar/Navbar.module.css";
 import UserMenu from "../footer/UserMenu";
 import { useRouter } from "next/navigation";
+import LandingPage from "@/app/LandingPage";
 
 const NavBar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);
   const [visible, setVisible] = useState(true);
-  const router = useRouter()
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,14 +29,19 @@ const NavBar = () => {
     setNavActive(false);
   };
 
-  const navGanadores = () =>{
+  const navGanadores = () => {
     setNavActive(false);
-   router.push("/participantes")
-  }
-  const navNosotros = () =>{
+    router.push("/participantes");
+  };
+  const navNosotros = () => {
     setNavActive(false);
-   router.push("/nosotros")
-  }
+    router.push("/nosotros");
+  };
+
+  const navLandingPage = () => {
+    setNavActive(false);
+    router.push("/landing");
+  };
 
   const goHome = () => {
     setNavActive(false);
@@ -47,14 +53,20 @@ const NavBar = () => {
   };
 
   return (
-    <div className={`${styles.PublicHeader} ${visible ? '' : styles.hidden}`}>
+    <div className={`${styles.PublicHeader} ${visible ? "" : styles.hidden}`}>
       <figure className={styles.PublicHeader_logo}>
-      <a href="/"> {/* logo inicio */}
-      <img className={styles.logoImage} src="/images/FONGAL.png" alt="FONGAL 2024"/>
-      </a>
-      <h1 className="text-3xl font-bold text-white">Concurso Ganadero</h1>
+        <a href="/">
+          {" "}
+          {/* logo inicio */}
+          <img
+            className={styles.logoImage}
+            src="/images/FONGAL.png"
+            alt="FONGAL 2024"
+          />
+        </a>
+        <h1 className="text-3xl font-bold text-white">Concurso Ganadero</h1>
       </figure>
-      <nav className={`${styles.navBar} ${isNavActive ? styles.active : ''}`}>
+      <nav className={`${styles.navBar} ${isNavActive ? styles.active : ""}`}>
         <ul className={styles.menuItems}>
           <li>
             <Link href="/participantes" onClick={navGanadores}>
@@ -76,10 +88,17 @@ const NavBar = () => {
               Informes
             </Link>
           </li>
-        
+          <li>
+            <Link href="/landing" onClick={navLandingPage}>
+              Landing
+            </Link>
+          </li>
         </ul>
       </nav>
-      <div className={`${styles.hamburger} ${isNavActive ? styles.toggle : ''}`} onClick={toggleNav}>
+      <div
+        className={`${styles.hamburger} ${isNavActive ? styles.toggle : ""}`}
+        onClick={toggleNav}
+      >
         <div className={styles.line1}></div>
         <div className={styles.line2}></div>
         <div className={styles.line3}></div>
