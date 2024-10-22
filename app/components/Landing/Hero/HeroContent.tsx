@@ -1,7 +1,6 @@
 import { motion, useAnimation } from "framer-motion";
-import { useRouter } from "next/router";
-import styles from "./Hero.module.css";
-
+import { useRouter } from "next/navigation";
+import styles from "@/app/styles/Hero.module.css";
 export const HeroContent: React.FC = () => {
   const controls = useAnimation();
   const router = useRouter();

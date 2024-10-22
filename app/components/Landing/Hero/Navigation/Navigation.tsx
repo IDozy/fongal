@@ -1,19 +1,19 @@
-import { motion } from 'framer-motion';
-import { useRouter } from 'next/router';
-import styles from './Navigation.module.css';
+import { motion } from "framer-motion";
+import { useRouter } from "next/navigation";
+import styles from "@/app/styles/Navigation.module.css";
 
 const navLinks = [
-  { label: 'Product', href: '#' },
-  { label: 'Company', href: '#' },
-  { label: 'Community', href: '#' },
-  { label: 'App', href: '#' }
+  { label: "Product", href: "#" },
+  { label: "Company", href: "#" },
+  { label: "Community", href: "#" },
+  { label: "App", href: "#" },
 ];
 
 export const Navigation: React.FC = () => {
   const router = useRouter();
 
   const handleJoinUs = () => {
-    router.push('/home');
+    router.push("/home");
   };
 
   return (
@@ -23,7 +23,7 @@ export const Navigation: React.FC = () => {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, delay: 1.8 }}
     >
-      <div className={styles.logo}>TRIBE</div>
+      <div className={styles.logo}>Ganaderos</div>
       <ul className={styles.navLinks}>
         {navLinks.map((link) => (
           <li key={link.label}>
@@ -33,10 +33,7 @@ export const Navigation: React.FC = () => {
           </li>
         ))}
       </ul>
-      <button 
-        className={styles.joinButton}
-        onClick={handleJoinUs}
-      >
+      <button className={styles.joinButton} onClick={handleJoinUs}>
         Join Us
       </button>
     </motion.nav>

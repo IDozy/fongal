@@ -1,5 +1,5 @@
-import { motion } from 'framer-motion';
-import styles from './Hero.module.css';
+import { motion } from "framer-motion";
+import styles from "@/app/styles/Hero.module.css";
 
 export const HeroBackground: React.FC = () => (
   <motion.div
