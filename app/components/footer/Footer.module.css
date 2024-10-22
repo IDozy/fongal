@@ -1,43 +1,54 @@
-.footer {
-  background-color: #f5f3f0;
-  color: #000;  
-  text-align: center;
-  width: 100%;
+/* Footer.module.css */
+.footer{
+  @apply bg-[linear-gradient(_90deg,_rgba(20,_135,_102,_1)_0%,_rgba(16,_108,_80,_1)_35%)]
+  text-green-300
 }
 
-.socialIcons {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  margin-bottom: 1rem;
+
+.contentGrid {
+  @apply flex flex-wrap justify-between;
 }
 
-.socialIcons a {
-  color: #000;
-  font-size: 1.5rem;
-  transition: color 0.3s;
+.brandSection {
+  @apply w-full md:w-1/3 mb-6 md:mb-0;
 }
 
-.socialIcons a:hover {
-  color: #007bff;
+.brandTitle {
+  @apply text-xl font-semibold mb-2;
+}
+
+.brandDescription {
+  @apply text-green-200;
+}
+
+.quickLinksSection {
+  @apply w-full md:w-1/3 mb-6 md:mb-0;
+}
+
+.sectionTitle {
+  @apply text-lg font-semibold mb-2 text-green-300;
+}
+
+.quickLinksList {
+  @apply space-y-2;
+}
+
+.quickLink {
+  @apply text-green-200 hover:text-white transition-colors duration-300;
+}
+
+.socialLinksSection {
+  @apply w-full md:w-1/3;
+}
+
+.socialIconsContainer {
+  @apply flex space-x-4;
+}
+
+.socialLink {
+  @apply text-green-200 hover:text-white transition-colors duration-300;
 }
 
 .copyright {
-  font-size: 0.875rem;
-}
-
-@media (max-width: 600px) {
-  .footer {
-    margin-top: 25%;
-    display: flex;
-    flex-direction: center;
-    justify-content: center;
-  }
-  .socialIcons a {
-    font-size: 1.25rem;
-  }
-
-  .copyright {
-    font-size: 0.75rem;
-  }
+  @apply mt-8 border-t border-green-700 pt-8 text-center text-green-200;
 }
