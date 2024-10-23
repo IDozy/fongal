@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  
 }
 
 /* Box Styles */
@@ -99,7 +100,6 @@ body {
   /* font-family: Arial, sans-serif;
   background-color: #f4f4f4; */
 
-  font-family: 'Poppins', sans-serif;
   background-color: var(--background-color);
   color: var(--text-color);
   /* @apply bg-fixed inset-0 bg-gradient-to-br from-yellow-200 to-green-600; */
