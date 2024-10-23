@@ -1,63 +1,10 @@
-/*// Student.tsx
-"use client";
-import React, { useEffect, useState } from "react";
-import ListPublic from "./component/ListPublic";
-import Sidebar from "../components/sidebar/Sidebar";
-
-const Student = () => {
-  const [ganadoList, setStudentList] = useState([]);
-  const [filteredData, setFilteredData] = useState([]);
-
-  useEffect(() => {
-    GetAllGanado();
-  }, []);
-
-  const GetAllGanado = async () => {
-    try {
-      const response = await fetch("/api/ganado/participantes");
-      if (!response.ok) throw new Error("Error fetching ganado");
-
-      const data = await response.json();
-      setStudentList(data);
-      setFilteredData(data);
-    } catch (error) {
-      console.error("Error fetching data: ", error);
-    }
-  };
-
-  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const searchValue = event.target.value.toLowerCase();
-    const filtered = ganadoList.filter((ganado) =>
-      Object.values(ganado)
-        .join(" ")
-        .toLowerCase()
-        .includes(searchValue)
-    );
-    setFilteredData(filtered);
-  };
-
-  return (
-    <div className="flex">
-      <Sidebar onSearchChange={handleSearchChange} />
-      <div className="p-10 mt-12 pb-20 bg-[#f3fdff] w-[85%]">
-        <h2 className="font-bold text-2xl flex justify-between items-center">
-          Ganadores
-        </h2>
-        <ListPublic ganadoList={filteredData} refreshData={GetAllGanado} />
-      </div>
-    </div>
-  );
-};
-
-export default Student;
-*/
-
 
 
 "use client";
 import React, { useEffect, useState } from "react";
 import ListPublic from "./component/ListPublic";
 import CategoryFilter from "../components/categoryfilter/categoryFilter";
+import NavBar from "../components/navbar/Navbar";
 //import Sidebar from "../components/sidebar/Sidebar";
 
 interface Ganado {
@@ -68,7 +15,7 @@ interface Ganado {
   [key: string]: any; // Para otras propiedades opcionales
 }
 
-const Student = () => {
+const Participante = () => {
   const [ganadoList, setGanadoList] = useState<Ganado[]>([]);
   const [filteredData, setFilteredData] = useState<Ganado[]>([]);
   const [filteredCategories, setFilteredCategories] = useState<number[]>([]); // Estado para las categorías filtradas
@@ -129,7 +76,7 @@ const Student = () => {
 
   return (
     <div >
-     
+     <NavBar/>
       <div className="p-10 mt-12 pb-20 ">
         <h2 className="font-bold text-2xl flex justify-between items-center">
           Participantes
@@ -141,4 +88,4 @@ const Student = () => {
   );
 };
 
-export default Student;
+export default Participante;
