@@ -61,13 +61,9 @@ export default async function RootLayout({
 
         <ClientOnly>
           <NavBar />
-
           <LoginModal />
-
           <RegisterModal />
-
           <main className="site-content">{children}</main>
-
           <div>
             {/* Your other components */}
             <Footer />

@@ -4,7 +4,7 @@ import Link from "next/link"; // Importa Link de next/link
 import styles from "@/app/components/navbar/Navbar.module.css";
 import UserMenu from "../footer/UserMenu";
 import { useRouter } from "next/navigation";
-import LandingPage from "@/app/LandingPage";
+import LandingPage from "@/app/landing/page";
 
 const NavBar = () => {
   const [prevScrollPos, setPrevScrollPos] = useState(0);

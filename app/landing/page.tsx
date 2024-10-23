@@ -3,11 +3,11 @@
 import React, { useEffect, useRef } from "react";
 import { useRouter } from "next/navigation"; // Cambiado a next/navigation
 import { useAnimation } from "framer-motion";
-import { HeroBackground } from "./components/Landing/Hero/HeroBackground";
-import { HeroCow } from "./components/Landing/Hero/HeroCow";
-import { HeroContent } from "./components/Landing/Hero/HeroContent";
-import { Navigation } from "./components/Landing/Hero/Navigation/Navigation";
-import PricingSection from "./components/PricingSection";
+import { HeroBackground } from "../components/Landing/Hero/HeroBackground";
+import { HeroCow } from "../components/Landing/Hero/HeroCow";
+import { HeroContent } from "../components/Landing/Hero/HeroContent";
+import { Navigation } from "../components/Landing/Hero/Navigation/Navigation";
+import PricingSection from "../components/PricingSection";
 import { motion } from "framer-motion";
 import styles from "@/app/styles/Hero.module.css";
 import '@/app/styles/indexLanding.css';
