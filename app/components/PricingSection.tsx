@@ -36,8 +36,8 @@ const PricingSection: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gray-100">
-      <div className="container mx-auto px-4">
+    <section className="py-20 bg-absolute min-h-screen bg-gradient-to-br from-green-300 to-yellow-200">
+      <div className="mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Choose Your Plan</h2>
         
         <div className="flex justify-center mb-8">

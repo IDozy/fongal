@@ -1,48 +1,51 @@
-import { motion, useAnimation } from "framer-motion";
-import { useRouter } from "next/navigation";
-import styles from "@/app/styles/Hero.module.css";
-export const HeroContent: React.FC = () => {
-  const controls = useAnimation();
-  const router = useRouter();
+"use client";
 
-  const handleGetStarted = () => {
-    router.push("/home");
-  };
+import { motion, MotionValue } from "framer-motion";
 
+interface HeroContentProps {
+  textY?: MotionValue<number>;
+  title?: string;
+  subtitle?: string;
+  className?: string;
+}
+
+export const HeroContent: React.FC<HeroContentProps> = ({
+  textY,
+  title = "Feria Fongal",
+  subtitle = "Revolutionizing Livestock Management",
+  className = ""
+}) => {
   return (
-    <div className={styles.contentLayer}>
+    <motion.div
+      className={`relative z-20 h-full flex flex-col items-center justify-center text-white px-4 ${className}`}
+      style={{ y: textY }}
+    >
       <motion.div
         initial={{ opacity: 0, y: 50 }}
-        animate={controls}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 1 }}
-        className={styles.contentWrapper}
+        className="text-center"
       >
         <motion.h1
-          className={styles.title}
+          className="text-6xl md:text-8xl font-bold mb-6"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.2 }}
         >
-          Feria Fongal
+          {title}
         </motion.h1>
+        
         <motion.p
-          className={styles.subtitle}
+          className="text-xl md:text-3xl mb-8"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.4 }}
         >
-          Revolutionizing Livestock Management
+          {subtitle}
         </motion.p>
-        <motion.button
-          className={styles.ctaButton}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
-          onClick={handleGetStarted}
-        >
-          Get Started
-        </motion.button>
       </motion.div>
-    </div>
+    </motion.div>
   );
 };
+
+export default HeroContent;
