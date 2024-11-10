@@ -2,8 +2,8 @@
 import React, { useEffect, useState } from "react";
 
 
-import AddNewGanado from "./_components/AddNewGanado";
-import GanadoListTable from "./_components/GanadoListTable";
+import AddNewGanado from "../app/managment/_components/AddNewGanado";
+import GanadoListTable from "../app/managment/_components/GanadoListTable";
 
 const Student = () => {
   const [ganadoList, setStudentList] = useState([]);

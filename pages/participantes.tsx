@@ -2,9 +2,9 @@
 
 "use client";
 import React, { useEffect, useState } from "react";
-import ListPublic from "./component/ListPublic";
-import CategoryFilter from "../components/categoryfilter/categoryFilter";
-import NavBar from "../components/navbar/Navbar";
+import ListPublic from "../app/participantes/component/ListPublic";
+import CategoryFilter from "../app/components/categoryfilter/categoryFilter";
+import NavBar from "../app/components/navbar/Navbar";
 //import Sidebar from "../components/sidebar/Sidebar";
 
 interface Ganado {
