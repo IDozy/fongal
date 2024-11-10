@@ -11,24 +11,25 @@ export const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className={styles.footer}>
-      <div className={styles.container}>
-        <div className={styles.contentGrid}>
-          <div className={styles.brandSection}>
-            <h3 className={styles.brandTitle}> Concursos Ganaderos</h3>
-            <p className={styles.brandDescription}>
-            Empowering competition with cutting-edge technology.
-            </p>
-          </div>
-          
-          <QuickLinks links={QUICK_LINKS} />
-          <SocialLinks links={SOCIAL_LINKS} />
-        </div>
-        
-        <div className={styles.copyright}>
-          <p>&copy; {currentYear} ConcursosGanaderos SaaS. All rights reserved.</p>
-        </div>
+<footer className={styles.footer}>
+  <div className={styles.container}>
+    <div className={styles.contentGrid}>
+      <div className={styles.brandSection}>
+        <h3 className={styles.brandTitle}>Concursos Ganaderos</h3>
+        <p className={styles.brandDescription}>
+          Desde el registro hasta el podio, simplificamos cada paso.
+        </p>
       </div>
-    </footer>
+
+      <QuickLinks links={QUICK_LINKS} />
+      <SocialLinks links={SOCIAL_LINKS} />
+    </div>
+    
+    <div className={styles.copyright}>
+      <p>&copy; {currentYear} ConcursosGanaderos SaaS. Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
   );
 };

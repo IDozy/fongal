@@ -7,13 +7,13 @@
 
 "use client";
 import { useEffect, useState } from "react";
-import Sponsors from "../components/sponsors/Sponsors"; 
-import GanadoCard from "../components/card/GanadoCard"; 
-import GanadoList from "../components/card/GanadoList";
-import Pagination from "../components/card/Pagination";
-import ViewToggle from "../components/card/ViewToggle";
-import ConcursoGanadero from "../components/ganadores/Concurso";
-import NavBar from "../components/navbar/Navbar";
+import Sponsors from "../app/components/sponsors/Sponsors"; 
+import GanadoCard from "../app/components/card/GanadoCard"; 
+import GanadoList from "../app/components/card/GanadoList";
+import Pagination from "../app/components/card/Pagination";
+import ViewToggle from "../app/components/card/ViewToggle";
+import ConcursoGanadero from "../app/components/ganadores/Concurso";
+import NavBar from "../app/components/navbar/Navbar";
 
 // Interfaz Ganado
 interface Ganado {
