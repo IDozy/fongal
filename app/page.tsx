@@ -166,7 +166,7 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
-              Feria Fongal
+              Concursos Ganaderos
             </motion.h1>
             <motion.p
               className="text-xl md:text-3xl mb-8"
@@ -174,7 +174,7 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
             >
-              Revolutionizing Livestock Management
+              Reconocemos tu dedicación y pasión por tus animales
             </motion.p>
           </motion.div>
         </motion.div>
