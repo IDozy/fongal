@@ -1,12 +1,14 @@
-/* Footer.module.css */
-.footer{
-  @apply bg-[linear-gradient(_90deg,_rgba(20,_135,_102,_1)_0%,_rgba(16,_108,_80,_1)_35%)]
-  text-green-300
+.footer {
+  @apply bg-[rgba(0,_0,_0,_0.7)] text-green-300 p-8;
+  backdrop-filter: blur(10px);
 }
 
+.container {
+  @apply max-w-7xl mx-auto;
+}
 
 .contentGrid {
-  @apply flex flex-wrap justify-between;
+  @apply flex flex-wrap justify-between items-start;
 }
 
 .brandSection {
@@ -34,7 +36,7 @@
 }
 
 .quickLink {
-  @apply text-green-200 hover:text-white transition-colors duration-300;
+  @apply text-green-200 hover:text-white transition-colors duration-300 cursor-pointer;
 }
 
 .socialLinksSection {
