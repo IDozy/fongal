@@ -1,59 +1,32 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
-import { useRouter } from "next/navigation"; // Cambiado a next/navigation
-import { motion, useScroll, useTransform, useAnimation } from "framer-motion";
-import { HeroBackground } from "./components/Landing/Hero/HeroBackground";
-import { HeroCow } from "./components/Landing/Hero/HeroCow";
-import { HeroContent } from "./components/Landing/Hero/HeroContent";
-import { Navigation } from "./components/Landing/Hero/Navigation/Navigation";
-import PricingSection from "./components/PricingSection";
-import styles from "@/app/styles/Hero.module.css";
-import "@/app/styles/indexLanding.css";
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { motion } from "framer-motion";
+import Link from "next/link";
 import Image from "next/image";
 import landscape from "@/public/landingImages/landscape.webp";
 import animalLandscape from "@/public/landingImages/3t.webp";
-import Link from "next/link";
 import { Footer } from "../app/components/footer/Footer";
-
+import "@/app/styles/indexLanding.css";
 
 const LandingPage = () => {
-  const controls = useAnimation();
-  const containerRef = useRef(null);
-  const { scrollY } = useScroll();
-  const [showFooter, setShowFooter] = useState(false);
-
-  // Create parallax effects
-  const backgroundY = useTransform(scrollY, [0, 500], [0, 100]);
-  const cowY = useTransform(scrollY, [0, 500], [0, 50]);
-  const textY = useTransform(scrollY, [0, 500], [0, 20]);
-
-    // Manejo del scroll para mostrar/ocultar el footer
-    useEffect(() => {
-      const handleScroll = () => {
-        // Mostrar el footer cuando el scroll supere el 10% de la altura de la ventana
-        const scrollThreshold = window.innerHeight * 0.1;
-        setShowFooter(window.scrollY > scrollThreshold);
-      };
-  
-      window.addEventListener('scroll', handleScroll);
-      return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
-  
-
-  useEffect(() => {
-    controls.start({ opacity: 1, y: 0 });
-  }, [controls]);
-
-  /***************************Navegacion**************************************** */
-
   const router = useRouter();
   const [isNavActive, setNavActive] = useState(false);
+  const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  // Toggle mobile menu
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!isMobileMenuOpen);
+  };
+
+  /***************************Navegacion**************************************** */
 
   const navGanadores = () => {
     setNavActive(false);
     router.push("/participantes");
   };
+
   const navNosotros = () => {
     setNavActive(false);
     router.push("/nosotros");
@@ -73,11 +46,10 @@ const LandingPage = () => {
 
   return (
     <div className="min-h-screen">
-      <div ref={containerRef} className="relative h-screen overflow-hidden">
-        {/* Background Layer - z-index: 1 */}
+      <div className="relative h-screen overflow-hidden">
+        {/* Background Layer */}
         <motion.div
           className="absolute inset-0"
-          style={{ y: backgroundY }}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1.5 }}
@@ -99,60 +71,99 @@ const LandingPage = () => {
           <div className="text-white text-2xl font-bold">
             Concursos Ganaderos
           </div>
-          <ul className="flex space-x-6 text-white">
+
+          {/* Desktop menu */}
+          <ul className="hidden md:flex space-x-6 text-white">
             <li>
               <Link
                 className="hover:text-green-200 transition-colors duration-300"
                 href="/participantes"
                 onClick={navGanadores}
               >
-                Participantes
+                Concursos
               </Link>
-              {/* <a
-                href="#"
-                className="hover:text-green-200 transition-colors duration-300"
-              >
-                Company
-  </a>*/}
             </li>
             <li>
-              <a
-                href="#"
+              <Link
                 className="hover:text-green-200 transition-colors duration-300"
+                href="/comunidad"
               >
-                Company
-              </a>
+                Comunidad
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
                 className="hover:text-green-200 transition-colors duration-300"
+                href="/nosotros"
+                onClick={navNosotros}
               >
-                Community
-              </a>
+                Nosotros
+              </Link>
             </li>
             <li>
-              <a
-                href="#"
+              <Link
                 className="hover:text-green-200 transition-colors duration-300"
+                href="/contacto"
               >
-                App
-              </a>
+                Contáctanos
+              </Link>
             </li>
           </ul>
-          <motion.button
-            className="relative bg-white text-green-600 px-4 py-2 rounded-full hover:bg-green-100 transition duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+
+          {/* Mobile menu button */}
+          <button
+            className="text-white md:hidden"
+            onClick={toggleMobileMenu}
           >
-            Join Us
-          </motion.button>
+            ☰
+          </button>
+
+          {/* Mobile menu */}
+          {isMobileMenuOpen && (
+            <div className="absolute top-16 right-0 bg-gray-800 text-white p-4 w-full">
+              <ul className="flex flex-col space-y-4">
+                <li>
+                  <Link
+                    className="hover:text-green-200 transition-colors duration-300"
+                    href="/participantes"
+                    onClick={navGanadores}
+                  >
+                    Concursos
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-green-200 transition-colors duration-300"
+                    href="/comunidad"
+                  >
+                    Comunidad
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-green-200 transition-colors duration-300"
+                    href="/nosotros"
+                    onClick={navNosotros}
+                  >
+                    Nosotros
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    className="hover:text-green-200 transition-colors duration-300"
+                    href="/contacto"
+                  >
+                    Contáctanos
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          )}
         </motion.nav>
 
-        {/* Text Content Layer - z-index: 20 */}
+        {/* Hero Section */}
         <motion.div
           className="relative z-20 h-1/2 flex flex-col items-center justify-center text-white px-4"
-          style={{ y: textY }}
         >
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -179,13 +190,9 @@ const LandingPage = () => {
           </motion.div>
         </motion.div>
 
-        {/* Cow Layer - z-index: 30 */}
+        {/* Cow Image Layer */}
         <motion.div
           className="absolute inset-0 flex items-center justify-center z-30"
-          style={{ y: cowY }}
-          initial={{ scale: 0.8, opacity: 0 }}
-          animate={{ scale: 1, opacity: 1 }}
-          transition={{ duration: 1.5, ease: "easeOut", delay: 0.5 }}
         >
           <Image
             src={animalLandscape}
@@ -194,25 +201,20 @@ const LandingPage = () => {
           />
         </motion.div>
 
-        {/* Button Layer - Highest z-index: 40 */}
+        {/* Action Button */}
         <motion.div
           className="absolute z-40 bottom-32 left-0 right-0 flex justify-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1.6 }}
         >
           <motion.button
             className="bg-white text-green-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-green-100 transition duration-300"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
           >
             ADQUIERE
           </motion.button>
         </motion.div>
       </div>
 
-      {/* Pricing Section 
-      <PricingSection />*/}    
+      {/* Footer */}
+      {/* <Footer /> */}
     </div>
   );
 };
