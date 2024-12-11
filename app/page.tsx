@@ -14,16 +14,32 @@ import Image from "next/image";
 import landscape from "@/public/landingImages/landscape.webp";
 import animalLandscape from "@/public/landingImages/3t.webp";
 import Link from "next/link";
+import { Footer } from "../app/components/footer/Footer";
+
 
 const LandingPage = () => {
   const controls = useAnimation();
   const containerRef = useRef(null);
   const { scrollY } = useScroll();
+  const [showFooter, setShowFooter] = useState(false);
 
   // Create parallax effects
   const backgroundY = useTransform(scrollY, [0, 500], [0, 100]);
   const cowY = useTransform(scrollY, [0, 500], [0, 50]);
   const textY = useTransform(scrollY, [0, 500], [0, 20]);
+
+    // Manejo del scroll para mostrar/ocultar el footer
+    useEffect(() => {
+      const handleScroll = () => {
+        // Mostrar el footer cuando el scroll supere el 10% de la altura de la ventana
+        const scrollThreshold = window.innerHeight * 0.1;
+        setShowFooter(window.scrollY > scrollThreshold);
+      };
+  
+      window.addEventListener('scroll', handleScroll);
+      return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+  
 
   useEffect(() => {
     controls.start({ opacity: 1, y: 0 });
@@ -135,7 +151,7 @@ const LandingPage = () => {
 
         {/* Text Content Layer - z-index: 20 */}
         <motion.div
-          className="relative z-20 h-full flex flex-col items-center justify-center text-white px-4"
+          className="relative z-20 h-1/2 flex flex-col items-center justify-center text-white px-4"
           style={{ y: textY }}
         >
           <motion.div
@@ -150,7 +166,7 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.2 }}
             >
-              Feria Fongal
+              Concursos Ganaderos
             </motion.h1>
             <motion.p
               className="text-xl md:text-3xl mb-8"
@@ -158,7 +174,7 @@ const LandingPage = () => {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 1.4 }}
             >
-              Revolutionizing Livestock Management
+              Reconocemos tu dedicación y pasión por tus animales
             </motion.p>
           </motion.div>
         </motion.div>
@@ -195,8 +211,8 @@ const LandingPage = () => {
         </motion.div>
       </div>
 
-      {/* Pricing Section */}
-      <PricingSection />
+      {/* Pricing Section 
+      <PricingSection />*/}    
     </div>
   );
 };
