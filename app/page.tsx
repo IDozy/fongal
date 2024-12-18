@@ -8,6 +8,7 @@ import Image from "next/image";
 import landscape from "@/public/landingImages/landscape.webp";
 import animalLandscape from "@/public/landingImages/3t.webp";
 import { Footer } from "../app/components/footer/Footer";
+import PricingSection from "./components/PricingSection";
 import "@/app/styles/indexLanding.css";
 
 const LandingPage = () => {
@@ -77,7 +78,7 @@ const LandingPage = () => {
             <li>
               <Link
                 className="hover:text-green-200 transition-colors duration-300"
-                href="/participantes"
+                href="/concursos"
                 onClick={navGanadores}
               >
                 Concursos
@@ -215,6 +216,7 @@ const LandingPage = () => {
 
       {/* Footer */}
       {/* <Footer /> */}
+      <PricingSection />
     </div>
   );
 };
