@@ -41,6 +41,27 @@ export default function LandingPage() {
 
   const toggleMobileMenu = () => setMobileMenuOpen(!isMobileMenuOpen);
 
+  // Funciones de navegación
+  const navGanadores = () => {
+    setMobileMenuOpen(false);
+    router.push("/participantes");
+  };
+
+  const navNosotros = () => {
+    setMobileMenuOpen(false);
+    router.push("/nosotros");
+  };
+
+  const navLandingPage = () => {
+    setMobileMenuOpen(false);
+    router.push("/landing");
+  };
+
+  const goHome = () => {
+    setMobileMenuOpen(false);
+    router.push("/");
+  };
+
   return (
     <div className="min-h-screen">
       <div className="relative h-screen overflow-hidden">
@@ -66,41 +87,44 @@ export default function LandingPage() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 1.8 }}
         >
-          <div className="text-white text-2xl font-bold">
+          <div
+            className="text-white text-2xl font-bold cursor-pointer"
+            onClick={goHome}
+          >
             Concursos Ganaderos
           </div>
           <ul className="hidden md:flex space-x-6 text-white">
             <li>
-              <a
-                href="#"
+              <button
+                onClick={navGanadores}
                 className="hover:text-green-200 transition-colors duration-300"
               >
                 Concursos
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="#"
+              <button
+                onClick={navLandingPage}
                 className="hover:text-green-200 transition-colors duration-300"
               >
                 Comunidad
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="#"
+              <button
+                onClick={navNosotros}
                 className="hover:text-green-200 transition-colors duration-300"
               >
                 Nosotros
-              </a>
+              </button>
             </li>
             <li>
-              <a
-                href="#"
+              <button
+                onClick={goHome}
                 className="hover:text-green-200 transition-colors duration-300"
               >
                 Contáctanos
-              </a>
+              </button>
             </li>
           </ul>
           <button className="text-white md:hidden" onClick={toggleMobileMenu}>
@@ -110,36 +134,36 @@ export default function LandingPage() {
             <div className="absolute top-16 right-0 bg-gray-800 text-white p-4 w-full">
               <ul className="flex flex-col space-y-4">
                 <li>
-                  <a
-                    href="#"
+                  <button
+                    onClick={navGanadores}
                     className="hover:text-green-200 transition-colors duration-300"
                   >
                     Concursos
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
+                    onClick={navLandingPage}
                     className="hover:text-green-200 transition-colors duration-300"
                   >
                     Comunidad
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
+                    onClick={navNosotros}
                     className="hover:text-green-200 transition-colors duration-300"
                   >
                     Nosotros
-                  </a>
+                  </button>
                 </li>
                 <li>
-                  <a
-                    href="#"
+                  <button
+                    onClick={goHome}
                     className="hover:text-green-200 transition-colors duration-300"
                   >
                     Contáctanos
-                  </a>
+                  </button>
                 </li>
               </ul>
             </div>
@@ -220,18 +244,18 @@ export default function LandingPage() {
               >
                 {/* Contenedor con máscara */}
                 <div
-  className="relative w-full h-full"
-  style={{
-    maskImage:
-      "linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%)",
-    WebkitMaskImage:
-      "linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%)",
-    maskSize: "100% 100%",
-    WebkitMaskSize: "100% 100%",
-    maskRepeat: "no-repeat",
-    WebkitMaskRepeat: "no-repeat",
-  }}
->
+                  className="relative w-full h-full"
+                  style={{
+                    maskImage:
+                      "linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%)",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 1) 85%, rgba(0, 0, 0, 0) 100%)",
+                    maskSize: "100% 100%",
+                    WebkitMaskSize: "100% 100%",
+                    maskRepeat: "no-repeat",
+                    WebkitMaskRepeat: "no-repeat",
+                  }}
+                >
                   <Image
                     src={animals[currentAnimal].image}
                     alt={animals[currentAnimal].name}
