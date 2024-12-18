@@ -293,7 +293,7 @@ export default function LandingPage() {
                 whileTap={{ scale: 0.95 }}
                 onClick={() =>
                   (window.location.href = "https://wa.me/965768311")
-                } // Reemplaza '1234567890' con el número de teléfono
+                } // Reemplaza con el número de teléfono
               >
                 ADQUIERE
               </motion.button>
