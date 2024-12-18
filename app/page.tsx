@@ -91,7 +91,7 @@ export default function LandingPage() {
             className="text-white text-2xl font-bold cursor-pointer"
             onClick={goHome}
           >
-            Concursos Ganaderos
+            🐄 Concursos Ganaderos
           </div>
           <ul className="hidden md:flex space-x-6 text-white">
             <li>
@@ -291,6 +291,9 @@ export default function LandingPage() {
                 className="bg-white text-green-600 font-bold py-3 px-8 rounded-full text-lg hover:bg-green-100 transition duration-300"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={() =>
+                  (window.location.href = "https://wa.me/965768311")
+                } // Reemplaza '1234567890' con el número de teléfono
               >
                 ADQUIERE
               </motion.button>
