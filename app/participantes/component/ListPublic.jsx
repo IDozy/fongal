@@ -140,16 +140,18 @@ const ListPublic = ({ ganadoList, refreshData }) => {
     ganadoList && setRowData(ganadoList);
   }, [ganadoList]);
 
+  
   const handleSearch = (searchValue) => {
     setSearchInput(searchValue);
     const filteredData = ganadoList.filter((ganado) =>
       Object.values(ganado)
-        .join(" ")
+        .join("")
         .toLowerCase()
         .includes(searchValue.toLowerCase())
     );
     setRowData(filteredData);
   };
+
 
   return (
     <div className="my-7">
