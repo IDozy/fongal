@@ -1,3 +1,4 @@
+//Page principal, landing slider animales
 "use client";
 
 import React, { useState, useEffect } from "react";
