@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { Nunito } from "next/font/google";
 import "./globals.css";
 import NavBar from "./components/navbar/Navbar";
-import { Footer } from "./components/footer/Footer";
+import { Footer } from "./components/footer/footerLanding";
 import getCurrentUser from "./acctions/getCurrentUser";
 import ClientOnly from "./components/ClientOnly";
 import Modal from "./components/modals/Modal";

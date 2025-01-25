@@ -1,6 +1,4 @@
 //categoria de filtros
-
-
 "use client";
 import React, { useEffect, useState } from "react";
 import ListPublic from "./component/ListPublic";
